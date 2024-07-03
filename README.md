@@ -55,7 +55,7 @@ GROQ_API_KEY=<api key for groq>
 - Project Management: **Trello, Slack**
 - Designing Phase: **Canva**
   - [component hierarchy diagram](https://trello.com/1/cards/66856759a71e10e566588620/attachments/6685676266d67bf6346cafee/download/Screenshot_2024-07-03_at_5.59.25_PM.png)
-  - [wireframe](https://ga-tamkeenbh.slack.com/archives/C07AXTXK6HJ/p1720038029868799)
+  - [wireframe](https://www.canva.com/design/DAGJ4jqxPO8/ztXD6WS_Zn6BTq2LUCTorw/edit?utm_content=DA[…]m_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
   - [ERD](https://trello.com/1/cards/6685499be12d6b80cf036d87/attachments/66854ac58e33538ea85a7c6c/download/Screenshot_2024-07-03_at_3.57.14_PM.png)
 
 ---
