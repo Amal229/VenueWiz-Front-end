@@ -1,1 +1,1 @@
-# EventManagementSystem_Front-end
+# EventManagementSystem-Front-end
