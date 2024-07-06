@@ -1,12 +1,11 @@
 import BookedVenues from './Vendor/BookedVenues'
 import BookedEvents from './user/BookedEvents'
 
-const Dashboard = () => {
-  const user = { id: '668703050fa670bdda6e8cfe', name: 'Fatema', vendor: false }
+const Dashboard = ({ user}) => {
 
   return (
     <div>
-      {user.vendor ? (
+      {user && user.vendor? (
         <BookedVenues user={user} />
       ) : (
         <BookedEvents user={user} />
