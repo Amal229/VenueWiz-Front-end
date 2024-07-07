@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { RegisterUser } from '../services/Auth'
+import { RegisterUser } from '../../services/Auth'
 import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
@@ -9,7 +9,8 @@ const Register = () => {
     name: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    userType: ''
   })
 
   const handleChange = (e) => {
@@ -22,14 +23,15 @@ const Register = () => {
       name: formValues.name,
       email: formValues.email,
       password: formValues.password,
-      vendor: false
+      userType: formValues.userType
     })
     console.log(res)
     setFormValues({
       name: '',
       email: '',
       password: '',
-      confirmPassword: ''
+      confirmPassword: '',
+      userType: ''
     })
     navigate('/signin')
   }
@@ -39,7 +41,7 @@ const Register = () => {
       <div className="card-overlay centered">
         <form className="col" onSubmit={handleSubmit}>
           <div className="input-wrapper">
-            <label htmlFor="name">Name</label>
+            <label className="name">Name</label>
             <input
               onChange={handleChange}
               name="name"
@@ -50,7 +52,7 @@ const Register = () => {
             />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="email">Email</label>
+            <label className="email">Email</label>
             <input
               onChange={handleChange}
               name="email"
@@ -62,7 +64,7 @@ const Register = () => {
           </div>
 
           <div className="input-wrapper">
-            <label htmlFor="password">Password</label>
+            <label className="password">Password</label>
             <input
               onChange={handleChange}
               type="password"
@@ -72,7 +74,7 @@ const Register = () => {
             />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="confirmPassword">Confirm Password</label>
+            <label className="confirmPassword">Confirm Password</label>
             <input
               onChange={handleChange}
               type="password"
@@ -80,6 +82,15 @@ const Register = () => {
               value={formValues.confirmPassword}
               required
             />
+            <select
+              name="userType"
+              value={formValues.userType}
+              onChange={handleChange}
+            >
+              <option value="">Select User Type</option>
+              <option value="user">User</option>
+              <option value="vendor">vendor</option>
+            </select>
           </div>
           <button
             disabled={
