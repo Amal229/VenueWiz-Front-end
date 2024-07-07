@@ -11,28 +11,6 @@ import Register from './components/Auth/Register'
 const App = () => {
   const [user, setUser] = useState(null)
 
-  useEffect(() => {
-    const checkToken = async () => {
-      const token = localStorage.getItem('token')
-      if (token) {
-        try {
-          const response = await api.get('/auth/check-session')
-          setUser(response.data.user)
-        } catch (error) {
-          console.error('Error checking session:', error)
-          localStorage.removeItem('token') // Remove invalid token
-          setUser(null)
-        }
-      }
-    }
-    checkToken()
-  }, [])
-
-  const handleLogin = (user, token) => {
-    localStorage.setItem('token', token)
-    setUser(user)
-  }
-
   return (
     <div>
       <Nav user={user} />
