@@ -18,7 +18,7 @@ const EventDetials = () => {
   const formattedDate = (date) => {
     return moment(date).format('YYYY-MM-DD')
   }
-  if (!event) return <div>no event found</div>
+  if (!event) return <div>no event found!</div>
 
   return (
     <div>
