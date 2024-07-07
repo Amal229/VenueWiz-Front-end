@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Venue from './components/Vendor/AddingVenuesForm'
 import { Routes, Route } from 'react-router-dom'
 import Categories from './components/Categories'
@@ -15,14 +15,16 @@ import { CheckSession } from './services/Auth'
 const App = () => {
   const [user, setUser] = useState(null)
 
-  const handleLogOut = () => {
-    setUser(null)
-    localStorage.clear()
-  }
   const checkToken = async () => {
     const user = await CheckSession()
     setUser(user)
   }
+
+  const handleLogOut = () => {
+    setUser(null)
+    localStorage.clear()
+  }
+
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
@@ -37,12 +39,15 @@ const App = () => {
         <Routes>
           {' '}
           <Route path="/register" element={<Register />} />
-          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signin" element={<SignIn setUser={setUser} />} />
           {/* <Route path="/" element={<Home />} /> */}
           <Route path="/categories" element={<Categories />} />
           <Route path="/categories/:category_id" element={<ViewVenues />} />
           <Route path="/dashboard" element={<Dashboard user={user} />} />
-          <Route path="/categories/:category_id/venues/:venue_id/newEvent" element={<VenueBookingForm user={user} />} />
+          <Route
+            path="/categories/:category_id/venues/:venue_id/newEvent"
+            element={<VenueBookingForm user={user} />}
+          />
           {/* <Route
             path="/invitation"
             element={

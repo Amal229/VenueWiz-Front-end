@@ -43,6 +43,7 @@ const VenueBookingForm = ({user}) => {
   }
 
   useEffect(() => {
+    console.log('user', user);
     const getvenuedetails = async () => {
       const data = await GetVenueDetails(category_id, venue_id)
       setVenue(data.venue)
