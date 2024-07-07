@@ -10,6 +10,7 @@ const Register = () => {
     email: '',
     password: '',
     confirmPassword: '',
+    phoneNumber: '',
     userType: ''
   })
 
@@ -23,6 +24,7 @@ const Register = () => {
       name: formValues.name,
       email: formValues.email,
       password: formValues.password,
+      phoneNumber: formValues.phoneNumber,
       userType: formValues.userType
     })
     console.log(res)
@@ -82,6 +84,17 @@ const Register = () => {
               value={formValues.confirmPassword}
               required
             />
+            <div className="input-wrapper">
+              <label className="phoneNumber">Phone Number</label>
+              <input
+                onChange={handleChange}
+                name="phoneNumber"
+                type="text"
+                placeholder="33000000"
+                value={formValues.phoneNumber}
+                required
+              />
+            </div>
             <select
               name="userType"
               value={formValues.userType}
@@ -95,6 +108,7 @@ const Register = () => {
           <button
             disabled={
               !formValues.email ||
+              !formValues.phoneNumber ||
               (!formValues.password &&
                 formValues.confirmPassword === formValues.password)
             }
