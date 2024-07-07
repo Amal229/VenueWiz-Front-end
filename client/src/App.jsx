@@ -10,7 +10,7 @@ import Nav from './components/Nav'
 import VenueBookingForm from './components/user/VenueBookingForm'
 import SignIn from './components/Auth/Login'
 import Register from './components/Auth/Register'
-
+import { CheckSession } from './services/Auth'
 import VenueDetails from './components/user/VenueDetails'
 import About from './components/About'
 import Home from './components/Home'

@@ -63,6 +63,7 @@ const VenueBookingForm = ({user}) => {
               <div className="input-wrapper">
                 <label htmlFor="date">Date</label>
                 <input
+                  disabled={"08-07-2024"}
                   onChange={handleChange}
                   name="date"
                   type="date"
