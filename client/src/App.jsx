@@ -10,13 +10,29 @@ import Nav from './components/Nav'
 import VenueBookingForm from './components/user/VenueBookingForm'
 import SignIn from './components/Auth/Login'
 import Register from './components/Auth/Register'
+import { CheckSession } from './services/Auth'
 
 const App = () => {
   const [user, setUser] = useState(null)
 
+  const handleLogOut = () => {
+    setUser(null)
+    localStorage.clear()
+  }
+  const checkToken = async () => {
+    const user = await CheckSession()
+    setUser(user)
+  }
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      checkToken()
+    }
+  }, [])
+
   return (
     <div>
-      <Nav user={user} />
+      <Nav user={user} handleLogOut={handleLogOut} />
       <main>
         <Routes>
           {' '}
