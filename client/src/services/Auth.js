@@ -32,3 +32,9 @@ export const CheckSession = async () => {
 const saveToken = (token) => {
   localStorage.setItem('token', token)
 }
+
+module.exports = {
+  SignInUser,
+  RegisterUser,
+  CheckSession
+}
