@@ -22,3 +22,14 @@ export const GetUserEvents = async (user_id) => {
     throw error
   }
 }
+
+export const CreateEvent = async (data) => {
+  try {
+    const res = await Client.get(`/event`, data)
+    console.log('result', res.data)
+
+    return res
+  } catch (error) {
+    throw error
+  }
+}

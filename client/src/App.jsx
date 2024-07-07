@@ -1,4 +1,6 @@
 import './App.css'
+import { useState } from 'react'
+import Venue from './components/Vendor/AddingVenuesForm'
 import { Routes, Route } from 'react-router-dom'
 import Categories from './components/Categories'
 import ViewVenues from './components/user/ViewVenues'
@@ -10,8 +12,7 @@ import SignIn from './components/Auth/Login'
 import Register from './components/Auth/Register'
 
 const App = () => {
-  // temporary
-  const user = null
+  const [user, setUser] = useState(null)
 
   return (
     <div>
@@ -24,7 +25,6 @@ const App = () => {
           {/* <Route path="/" element={<Home />} /> */}
           <Route path="/categories" element={<Categories />} />
           <Route path="/categories/:category_id" element={<ViewVenues />} />
-          {/* should accept user */}
           <Route path="/dashboard" element={<Dashboard user={user} />} />
           <Route path="/categories/:category_id/venues/:venue_id/newEvent" element={<VenueBookingForm user={user} />} />
           {/* <Route
@@ -36,6 +36,7 @@ const App = () => {
               />
             }
           /> */}
+          <Route path="Venue" element={<Venue />} />
         </Routes>
       </main>
     </div>

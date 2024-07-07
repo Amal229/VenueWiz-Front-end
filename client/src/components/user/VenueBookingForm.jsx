@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { GetVenueDetails } from '../../services/Venue'
+import { CreateEvent } from '../../services/Event'
 
-const VenueBookingForm = () => {
+const VenueBookingForm = ({user}) => {
   const { category_id, venue_id } = useParams()
   const [venue, setVenue] = useState({})
   const [bookedDates, setBookedDates] = useState([])
@@ -19,21 +20,23 @@ const VenueBookingForm = () => {
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
+    console.log(formValues)
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const { date, guestNumbers, package_name, notes } = formValues
+    const { date, guestNumbers, notes } = formValues
 
     try {
-      // await RegisterUser({ firstName, lastName, email, password })
+      const res = await CreateEvent({ date, guestNumbers, notes, package: formValues.package_name, userId: user.id, vendorId: venue.vendor_ref, venueId: venue._id })
+      console.log('created event',res);
       setFormValues({
         date: '',
         guestNumbers: '',
         package_name: '',
         notes: ''
       })
-      // navigate('/login')
+      // navigate('/dashboard')
     } catch (error) {
       console.error('Booking failed:', error)
     }
@@ -54,7 +57,7 @@ const VenueBookingForm = () => {
       <div className="card-overlay centered">
         {venue ? (
           <div>
-            <h3>{ venue.name }</h3>
+            <h3>{venue.name}</h3>
             <form className="col" onSubmit={handleSubmit}>
               <div className="input-wrapper">
                 <label htmlFor="date">Date</label>
@@ -82,14 +85,15 @@ const VenueBookingForm = () => {
 
               <div className="input-wrapper">
                 {/* drop down menu */}
-                <label htmlFor="package_name">Package</label>
-                <input
-                  onChange={handleChange}
-                  type="text"
-                  name="package_name"
-                  value={formValues.package_name}
-                  required
-                />
+                <label htmlFor="package_name">Package:</label>
+
+                <select name="package_name" id="package_name" onChange={handleChange}>
+                  {venue.package?.map((pkg) => (
+                    <option key={pkg._id} value={pkg.name}>
+                      {pkg.name}  {pkg.price}BD
+                    </option>
+                  ))}
+                </select>
               </div>
               <div className="input-wrapper">
                 <label htmlFor="notes">Notes</label>
