@@ -6,7 +6,9 @@ import Dashboard from './components/DashBoard'
 import Nav from './components/Nav'
 import SignIn from './components/Auth/Login'
 import Register from './components/Auth/Register'
-
+import VenueDetails from './components/user/VenueDetails'
+import About from './components/About'
+import Home from './components/Home'
 const App = () => {
   // temporary
   const user = null
@@ -24,6 +26,12 @@ const App = () => {
           <Route path="/categories/:category_id" element={<ViewVenues />} />
           {/* should accept user */}
           <Route path="/dashboard" element={<Dashboard user={user} />} />
+          <Route
+            path="/categories/:category_id/venues/:venue_id"
+            element={<VenueDetails />}
+          />
+          <Route path="/about" element={<About />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </main>
     </div>
