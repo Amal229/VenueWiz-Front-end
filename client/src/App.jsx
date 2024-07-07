@@ -10,6 +10,9 @@ import Nav from './components/Nav'
 import VenueBookingForm from './components/user/VenueBookingForm'
 import SignIn from './components/Auth/Login'
 import Register from './components/Auth/Register'
+import EventDetials from './components/Vendor/EventDetails'
+import BookedEvents from './components/user/BookedEvents'
+import { useState } from 'react'
 
 import VenueDetails from './components/user/VenueDetails'
 import About from './components/About'
@@ -69,6 +72,8 @@ const App = () => {
             }
           /> */}
           <Route path="Venue" element={<Venue />} />
+          <Route path="/bookedevents" element={<BookedEvents />} />
+          <Route path="/eventdetails/:eventId" element={<EventDetials />} />
         </Routes>
       </main>
     </div>
