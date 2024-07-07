@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom'
 import Categories from './components/Categories'
 import Dashboard from './components/DashBoard'
 import Nav from './components/Nav'
+import SignIn from './components/Auth/Login'
+import Register from './components/Auth/Register'
 
 const App = () => {
   // temporary
@@ -12,6 +14,9 @@ const App = () => {
     <div>
       <Nav user={user} />
       <main>
+        <Route path="/register" element={<Register />} />
+        <Route path="/signin" element={<SignIn setUser={setUser} />} />
+
         <Routes>
           {/* <Route path="/" element={<Home />} /> */}
           <Route path="/categories" element={<Categories />} />
