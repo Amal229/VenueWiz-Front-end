@@ -15,10 +15,10 @@ const App = () => {
     <div>
       <Nav user={user} />
       <main>
-        <Route path="/register" element={<Register />} />
-        <Route path="/signin" element={<SignIn setUser={setUser} />} />
-
         <Routes>
+          {' '}
+          <Route path="/register" element={<Register />} />
+          <Route path="/signin" element={<SignIn />} />
           {/* <Route path="/" element={<Home />} /> */}
           <Route path="/categories" element={<Categories />} />
           <Route path="/categories/:category_id" element={<ViewVenues />} />
