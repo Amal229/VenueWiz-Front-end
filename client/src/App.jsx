@@ -8,28 +8,29 @@ import { useState, useEffect } from 'react'
 import { CheckSession } from './services/Auth'
 
 const App = () => {
-  // temporary
-  const user = null
-
-  const [user, setUser] = useState({})
-
-  const handleLogOut = () => {
-    // Reset all auth related state and clear localStorage
-    setUser(null)
-    localStorage.clear()
-  }
-
-  const checkToken = async () => {
-    const user = await CheckSession()
-    setUser(user)
-  }
+  const [user, setUser] = useState(null)
 
   useEffect(() => {
-    const token = localStorage.getItem('token')
-    if (token) {
-      checkToken()
+    const checkToken = async () => {
+      const token = localStorage.getItem('token')
+      if (token) {
+        try {
+          const response = await api.get('/auth/check-session')
+          setUser(response.data.user)
+        } catch (error) {
+          console.error('Error checking session:', error)
+          localStorage.removeItem('token') // Remove invalid token
+          setUser(null)
+        }
+      }
     }
+    checkToken()
   }, [])
+
+  const handleLogin = (user, token) => {
+    localStorage.setItem('token', token)
+    setUser(user)
+  }
 
   return (
     <div>
@@ -39,8 +40,8 @@ const App = () => {
           {/* <Route path="/" element={<Home />} /> */}
           <Route path="/categories" element={<Categories />} />
           {/* should accept user */}
-          <Route path="/dashboard" element={<Dashboard user={user} />} />
-          <Route path="Venue" element={<Venue user={user} />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="Venue" element={<Venue />} />
         </Routes>
       </main>
     </div>
