@@ -1,5 +1,5 @@
 import './App.css'
-import Venue from './components/Vendor/AddingVenuesForm'
+import AddingVenuesForm from './components/Vendor/AddingVenuesForm'
 import { Routes, Route } from 'react-router-dom'
 import Categories from './components/Categories'
 import ViewVenues from './components/user/ViewVenues'
@@ -27,7 +27,7 @@ const App = () => {
           <Route path="/categories/:category_id" element={<ViewVenues />} />
           {/* should accept user */}
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="Venue" element={<Venue />} />
+          <Route path="/venues/newvenue" element={<AddingVenuesForm />} />
           <Route path="/bookedevents" element={<BookedEvents />} />
           <Route path="/eventdetails/:eventId" element={<EventDetials />} />
         </Routes>
