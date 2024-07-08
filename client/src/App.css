@@ -52,8 +52,6 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #f8f9fa; /* Light background color */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
 }
 
 /* Styles for the title */
@@ -66,27 +64,16 @@ header {
   margin: 0;
 }
 
-/* General styles for the Nav component */
-header {
+/* Styles for the navigation links */
+.nav-links a {
+  text-decoration: none; /* Remove underline */
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #555;
+  transition: color 0.3s;
+}
+/* Container for navigation links */
+.nav-links {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #f8f9fa; /* Light background color */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-}
-
-/* Styles for the title */
-.title {
-  font-family: Arial, sans-serif;
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  text-align: center;
-  margin: 0;
-}
-/* Remove underline for the title inside links */
-a .title,
-a h3.title {
-  text-decoration: none;
+  gap: 15px; /* Spacing between links */
 }
