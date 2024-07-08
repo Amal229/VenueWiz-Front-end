@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { GetCategories } from '../../services/Venue'
 import Client from '../../services/api'
+import '../../App.css'
 
 const EditVenuesForm = ({ user }) => {
   const [submittedVenue, setSubmittedVenue] = useState(null) //delete
@@ -90,7 +91,7 @@ const EditVenuesForm = ({ user }) => {
     fetchCategories()
   }, [])
   return (
-    <div>
+    <div className="Forms">
       {editFormValues && (
         <form onSubmit={handleUpdate}>
           <div>
