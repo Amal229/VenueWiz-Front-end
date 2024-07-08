@@ -54,7 +54,7 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard user={user} />} />
 
           {/* vendor routes */}
-          <Route path="/venues" element={<MyVenue user={ user } />} />
+          <Route path="/venues" element={<MyVenue user={user} />} />
           <Route
             path="/venues/newvenue"
             element={<AddingVenuesForm user={user} />}
@@ -77,12 +77,9 @@ const App = () => {
           />
           <Route path="/eventdetails/:eventId" element={<EventDetials />} />
           <Route
-            path="/invitation"
+            path="/invitation/:event_id"
             element={
-              <Invitation
-                invitationMessage="You are invited!"
-                invitationLink={window.location.href}
-              />
+              <Invitation user={user} invitationLink={window.location.href} />
             }
           />
         </Routes>

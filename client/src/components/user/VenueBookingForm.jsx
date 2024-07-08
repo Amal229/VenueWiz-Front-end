@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import moment from 'moment'
 import DatePicker from 'rsuite/DatePicker'
 import 'rsuite/DatePicker/styles/index.css'
@@ -7,6 +7,7 @@ import { GetVenueDetails } from '../../services/Venue'
 import { CreateEvent } from '../../services/Event'
 
 const VenueBookingForm = ({ user }) => {
+  let navigate = useNavigate()
   const { category_id, venue_id } = useParams()
   const [venue, setVenue] = useState({})
   const [bookedDates, setBookedDates] = useState([])
@@ -23,12 +24,10 @@ const VenueBookingForm = ({ user }) => {
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
-    console.log(formValues)
   }
 
   const handleDateChange = (date) => {
     setFormValues({ ...formValues, date })
-    console.log(formValues)
   }
 
   const handleSubmit = async (e) => {
@@ -37,7 +36,6 @@ const VenueBookingForm = ({ user }) => {
 
     try {
       const formattedDate = moment(date).format()
-      console.log(formattedDate)
       const res = await CreateEvent({
         bookingDate: formattedDate,
         guestNumbers,
@@ -54,14 +52,14 @@ const VenueBookingForm = ({ user }) => {
         package_name: '',
         notes: ''
       })
-      // navigate('/dashboard')
+
+      navigate(`/eventdetails/${res.data._id}`)
     } catch (error) {
       console.error('Booking failed:', error)
     }
   }
 
   const isDateDisabled = (date) => {
-    console.log('date', date)
     const formattedDate = moment(date).format('YYYY-MM-DD')
     return bookedDates.some((bookedDate) => {
       const bookeddate = moment(bookedDate).format('YYYY-MM-DD')
@@ -70,12 +68,10 @@ const VenueBookingForm = ({ user }) => {
   }
 
   useEffect(() => {
-    console.log('user', user)
     const getvenuedetails = async () => {
       const data = await GetVenueDetails(category_id, venue_id)
       setVenue(data.venue)
       setBookedDates(data.booked_dates)
-      console.log('data', data.venue)
     }
     getvenuedetails()
   }, [venue_id])
