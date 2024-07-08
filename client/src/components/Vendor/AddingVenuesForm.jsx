@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import { GetCategories } from '../../services/Venue'
 
 const AddingVenuesForm = ({ user }) => {
   // const { vendor_id } = useParams()
@@ -11,39 +12,19 @@ const AddingVenuesForm = ({ user }) => {
     description: '',
     website: '',
     image: '',
+    packages: [],
     price: 0,
     categories: ''
   })
   const [submittedVenue, setSubmittedVenue] = useState(null)
 
   const [venues, setVenues] = useState([])
-
-  // const [editFormValues, setEditFormValues] = useState({
-  //   name: '',
-  //   location: '',
-  //   description: '',
-  //   website: '',
-  //   image: '',
-  //   price: '',
-  //   categories: ''
-  // })
-
-  // useEffect(() => {
-  //   const fetchVenues = async () => {
-  //     const response = await axios.get(
-  //       `http://localhost:3001/venue/vendor/${vendor_id}`
-  //     )
-  //     setVenues(response.data)
-  //   }
-  //   fetchVenues()
-  // }, [user.id])
+  const [categories, setCategories] = useState([])
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
-  // const handleEditChange = (e) => {
-  //   setEditFormValues({ ...editFormValues, [e.target.name]: e.target.value })
-  // }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -64,42 +45,32 @@ const AddingVenuesForm = ({ user }) => {
       description: '',
       website: '',
       image: '',
-      price: '',
+      packages: [],
+      price: 0,
       categories: ''
     })
     setSubmittedVenue(newVenue)
   }
-  // const handleUpdate = async (e) => {
-  //   e.preventDefault()
-  //   const response = await axios.put('http://localhost:3001/venues/:venue_id')
 
-  // const updatedVenue = response.data
-  // setVenues((lastVenues) =>
-  //   lastVenues.map((venue) => {
-  //     if (venue._id === updatedVenue._id) {
-  //       return updatedVenue
-  //     } else {
-  //       return venue
-  //     }
-  //   })
-  // )
-  // setEditFormValues({
-  //   name: '',
-  //   location: '',
-  //   description: '',
-  //   website: '',
-  //   image: '',
-  //   price: '',
-  //   categories: ''
-  // })
-  // }
   const handleDelete = async (venueId) => {
     await axios.delete('http://localhost:3001/venues/:venue_id')
     setVenues(venues.filter((venue) => venue._id !== venueId))
   }
-  // const handleEdit = (venue) => {
-  //   setEditFormValues(venue)
-  // }
+  //for categories selection
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await GetCategories()
+        setCategories(response)
+        console.log('categories', response)
+      } catch (error) {
+        console.log('Error Connecting', error)
+      }
+    }
+
+    fetchCategories()
+  }, [])
+
   return (
     <div className="Forms">
       <div>
@@ -118,19 +89,19 @@ const AddingVenuesForm = ({ user }) => {
             <label htmlFor="location">Location</label>
             <input
               onChange={handleChange}
-              name="locaiton"
+              name="location"
               type="text"
               value={formValues.location}
               required
             />
           </div>
           <div>
-            <label htmlFor="descritption">descritption</label>
+            <label htmlFor="description">description</label>
             <input
               onChange={handleChange}
-              name="descritption"
+              name="description"
               type="text"
-              value={formValues.descritption}
+              value={formValues.description}
               required
             />
           </div>
@@ -165,26 +136,41 @@ const AddingVenuesForm = ({ user }) => {
             />
           </div>
           <div>
-            <label htmlFor="package">package</label>
+            <label htmlFor="packages">packages</label>
             <input
               onChange={handleChange}
-              name="package"
-              type=""
-              value={formValues.package}
+              name="packages"
+              type="text"
+              value={formValues.packages}
               required
             />
           </div>
           <div>
             <label htmlFor="categories">categories</label>
-            <input
+            <select
               onChange={handleChange}
               name="categories"
-              type=""
+              type="text"
               value={formValues.categories}
-              required
-            />
+            >
+              {categories?.map((cate) => (
+                <option key={cate._id} value={cate.name}>
+                  {cate.name}
+                </option>
+              ))}
+            </select>
           </div>
-          <button disabled={!formValues.name || !formValues.location}>
+          <button
+            disabled={
+              !formValues.name ||
+              !formValues.location ||
+              !formValues.categories ||
+              !formValues.description ||
+              !formValues.image ||
+              !formValues.price ||
+              !formValues.website
+            }
+          >
             Add your venue
           </button>
         </form>

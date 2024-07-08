@@ -73,7 +73,7 @@ const App = () => {
               />
             }
           /> */}
-          <Route path="Venue" element={<Venue />} />
+          <Route path="venues/newvenue" element={<Venue />} />
           <Route path="/bookedevents" element={<BookedEvents />} />
           <Route path="/eventdetails/:eventId" element={<EventDetials />} />
         </Routes>
