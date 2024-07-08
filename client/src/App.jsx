@@ -1,3 +1,6 @@
+import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+import Invitation from './components/Invitation'
 import './App.css'
 import { useState, useEffect } from 'react'
 import Venue from './components/Vendor/AddingVenuesForm'
@@ -7,10 +10,10 @@ import Categories from './components/Categories'
 import ViewVenues from './components/user/ViewVenues'
 import Dashboard from './components/DashBoard'
 import Nav from './components/Nav'
-// import Invitation from './components/Invitation'
 import VenueBookingForm from './components/user/VenueBookingForm'
 import Login from './components/Auth/Login'
 import Register from './components/Auth/Register'
+import { CheckSession } from './services/Auth'
 import EventDetials from './components/Vendor/EventDetails'
 import BookedEvents from './components/user/BookedEvents'
 //import { useState } from 'react'
@@ -18,6 +21,9 @@ import { CheckSession } from './services/Auth'
 import VenueDetails from './components/user/VenueDetails'
 import About from './components/About'
 import Home from './components/Home'
+import MyVenue from './components/Vendor/MyVenues'
+import VendorVenueDetails from './components/Vendor/VenueDetails'
+
 import EditVenuesForm from './components/Vendor/EditVenue'
 
 const App = () => {
@@ -50,6 +56,7 @@ const App = () => {
           <Route path="/login" element={<Login setUser={setUser} />} />
           {/* <Route path="/" element={<Home />} /> */}
           <Route path="/categories" element={<Categories />} />
+          <Route path="/venues" element={<MyVenue />} />
           <Route path="/categories/:category_id" element={<ViewVenues />} />
           {/* should accept user */}
           <Route path="/dashboard" element={<Dashboard />} />
@@ -72,7 +79,7 @@ const App = () => {
             path="/categories/:category_id/venues/:venue_id/newEvent"
             element={<VenueBookingForm user={user} />}
           />
-          {/* <Route
+          <Route
             path="/invitation"
             element={
               <Invitation
@@ -80,9 +87,12 @@ const App = () => {
                 invitationLink={window.location.href}
               />
             }
-          /> */}
+          />
+          <Route path="Venue" element={<Venue />} />
+          <Route path="/myVenue" element={<MyVenue user={user} />} />
           <Route path="/bookedevents" element={<BookedEvents />} />
           <Route path="/eventdetails/:eventId" element={<EventDetials />} />
+          <Route path="/venues/:venue_id" element={<VendorVenueDetails />} />
         </Routes>
       </main>
     </div>

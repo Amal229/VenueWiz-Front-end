@@ -16,7 +16,7 @@ const SignIn = ({ setUser }) => {
     setFormValues({ email: '', password: '' })
     setUser(payload)
     payload.vendor
-    navigate('/vendordashboard')
+    navigate('/home')
   }
 
   return (

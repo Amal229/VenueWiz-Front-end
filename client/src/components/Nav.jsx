@@ -1,12 +1,13 @@
 // navbar
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink, Link } from "react-router-dom"
 
 // { user, handleLogOut }
 const Nav = ({ user, handleLogOut }) => {
   return (
     <header>
-      <NavLink to="/">
-        <h3>VenueWiz</h3>
+      <h3 className="title"> VenueWiz</h3>
+      <NavLink className="">
+        {/* <h3 className="title"> VenueWiz</h3> */}
       </NavLink>
 
       <div className="nav-links">
@@ -18,10 +19,10 @@ const Nav = ({ user, handleLogOut }) => {
         </NavLink>
         {user ? (
           // vendor nav
-          user.vendor === true ? (
+          user.type === true ? (
             <>
-              <NavLink to="/categories" end>
-                My Venues
+              <NavLink to="/myVenue">
+                <h3>My Venues</h3>
               </NavLink>
               <NavLink to="/dashboard" end>
                 Dashboard
