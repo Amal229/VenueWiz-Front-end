@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Invitation from './components/Invitation'
@@ -19,7 +18,7 @@ import BookedEvents from './components/user/BookedEvents'
 import VenueDetails from './components/user/VenueDetails'
 import About from './components/About'
 import Home from './components/Home'
-
+import VendorVenueDetails from './components/Vendor/VenueDetails'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -35,7 +34,7 @@ const App = () => {
   }
 
   useEffect(() => {
-    const token = localStorage.getItem("token")
+    const token = localStorage.getItem('token')
     if (token) {
       checkToken()
     }
@@ -46,7 +45,7 @@ const App = () => {
       <Nav user={user} handleLogOut={handleLogOut} />
       <main>
         <Routes>
-          {" "}
+          {' '}
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login setUser={setUser} />} />
           {/* <Route path="/" element={<Home />} /> */}
@@ -73,9 +72,10 @@ const App = () => {
               />
             }
           />
-          <Route path="Venue" element={<Venue />} />
+          <Route path="venue" element={<Venue />} />
           <Route path="/bookedevents" element={<BookedEvents />} />
           <Route path="/eventdetails/:eventId" element={<EventDetials />} />
+          <Route path="/venues/:venue_id" element={<VendorVenueDetails />} />
         </Routes>
       </main>
     </div>
