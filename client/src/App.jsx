@@ -14,7 +14,7 @@ import Register from './components/Auth/Register'
 import EventDetials from './components/Vendor/EventDetails'
 import BookedEvents from './components/user/BookedEvents'
 //import { useState } from 'react'
-
+import { CheckSession } from './services/Auth'
 import VenueDetails from './components/user/VenueDetails'
 import About from './components/About'
 import Home from './components/Home'
@@ -52,7 +52,10 @@ const App = () => {
           <Route path="/categories/:category_id" element={<ViewVenues />} />
           {/* should accept user */}
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/venues/newvenue" element={<AddingVenuesForm />} />
+          <Route
+            path="/venues/newvenue"
+            element={<AddingVenuesForm user={user} />}
+          />
           <Route path="/dashboard" element={<Dashboard user={user} />} />
           <Route
             path="/categories/:category_id/venues/:venue_id"
@@ -73,7 +76,6 @@ const App = () => {
               />
             }
           /> */}
-          <Route path="venues/newvenue" element={<Venue />} />
           <Route path="/bookedevents" element={<BookedEvents />} />
           <Route path="/eventdetails/:eventId" element={<EventDetials />} />
         </Routes>

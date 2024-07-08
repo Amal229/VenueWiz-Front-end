@@ -2,9 +2,12 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { GetCategories } from '../../services/Venue'
+import Client from '../../services/api'
 
 const AddingVenuesForm = ({ user }) => {
   // const { vendor_id } = useParams()
+
+  const [categories, setCategories] = useState([])
 
   const [formValues, setFormValues] = useState({
     name: '',
@@ -14,12 +17,8 @@ const AddingVenuesForm = ({ user }) => {
     image: '',
     packages: [],
     price: 0,
-    categories: ''
+    categories: []
   })
-  const [submittedVenue, setSubmittedVenue] = useState(null)
-
-  const [venues, setVenues] = useState([])
-  const [categories, setCategories] = useState([])
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
@@ -33,31 +32,32 @@ const AddingVenuesForm = ({ user }) => {
       vendor_ref: user.id
     }
 
-    const response = await axios.post('http://localhost:3001/venues', data)
+    const response = await Client.post('/categories/venues', data)
     console.log(data)
 
-    const newVenue = response.data
-    setVenues([...venues, newVenue])
+    // const newVenue = response.data
+    // setVenues([...venues, newVenue])
 
-    setFormValues({
-      name: '',
-      location: '',
-      description: '',
-      website: '',
-      image: '',
-      packages: [],
-      price: 0,
-      categories: ''
-    })
-    setSubmittedVenue(newVenue)
+    // setFormValues({
+    //   name: '',
+    //   location: '',
+    //   description: '',
+    //   website: '',
+    //   image: '',
+    //   packages: [],
+    //   price: 0,
+    //   categories: ''
+    // })
+    // setSubmittedVenue(newVenue)
   }
 
-  const handleDelete = async (venueId) => {
-    await axios.delete('http://localhost:3001/venues/:venue_id')
-    setVenues(venues.filter((venue) => venue._id !== venueId))
-  }
+  // const handleDelete = async (venueId) => {
+  //   await axios.delete('http://localhost:3001/venues/:venue_id')
+  //   setVenues(venues.filter((venue) => venue._id !== venueId))
+  // }
   //for categories selection
   useEffect(() => {
+    console.log(user)
     const fetchCategories = async () => {
       try {
         const response = await GetCategories()
@@ -147,14 +147,9 @@ const AddingVenuesForm = ({ user }) => {
           </div>
           <div>
             <label htmlFor="categories">categories</label>
-            <select
-              onChange={handleChange}
-              name="categories"
-              type="text"
-              value={formValues.categories}
-            >
+            <select onChange={handleChange} name="categories">
               {categories?.map((cate) => (
-                <option key={cate._id} value={cate.name}>
+                <option key={cate._id} value={cate._id}>
                   {cate.name}
                 </option>
               ))}
@@ -175,40 +170,15 @@ const AddingVenuesForm = ({ user }) => {
           </button>
         </form>
       </div>
-      {/* {editFormValues._id && (
-        <form onSubmit={handleUpdate}>
-          <div>
-            <label htmlFor="editName">Name</label>
-            <input
-              onChange={handleEditChange}
-              name="name"
-              type="text"
-              value={editFormValues.name}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="editLocation">Location</label>
-            <input
-              onChange={handleEditChange}
-              name="location"
-              type="text"
-              value={editFormValues.location}
-              required
-            />
-          </div>
-          <button>Update Venue</button>
-        </form>
-      )} */}
-      <h3>Venue List</h3>
+
+      {/* <h3>Venue List</h3>
       {venues.map((venue) => (
         <div key={venue._id}>
           <h4>name:{venue.name}</h4>
           <h4>location:{venue.location}</h4>
           <button onClick={() => handleDelete(venue._id)}>Delete</button>
-          {/* <button onClick={() => handleEdit(venue)}>Edit</button> */}
         </div>
-      ))}
+      ))} */}
     </div>
   )
 }
