@@ -34,27 +34,7 @@ const AddingVenuesForm = ({ user }) => {
 
     const response = await Client.post('/categories/venues', data)
     console.log(data)
-
-    // const newVenue = response.data
-    // setVenues([...venues, newVenue])
-
-    // setFormValues({
-    //   name: '',
-    //   location: '',
-    //   description: '',
-    //   website: '',
-    //   image: '',
-    //   packages: [],
-    //   price: 0,
-    //   categories: ''
-    // })
-    // setSubmittedVenue(newVenue)
   }
-
-  // const handleDelete = async (venueId) => {
-  //   await axios.delete('http://localhost:3001/venues/:venue_id')
-  //   setVenues(venues.filter((venue) => venue._id !== venueId))
-  // }
   //for categories selection
   useEffect(() => {
     console.log(user)

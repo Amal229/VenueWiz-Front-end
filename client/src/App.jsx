@@ -18,6 +18,7 @@ import { CheckSession } from './services/Auth'
 import VenueDetails from './components/user/VenueDetails'
 import About from './components/About'
 import Home from './components/Home'
+import EditVenuesForm from './components/Vendor/EditVenue'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -55,6 +56,10 @@ const App = () => {
           <Route
             path="/venues/newvenue"
             element={<AddingVenuesForm user={user} />}
+          />
+          <Route
+            path="/venues/:venue_id/editvenue"
+            element={<EditVenuesForm user={user} />}
           />
           <Route path="/dashboard" element={<Dashboard user={user} />} />
           <Route
