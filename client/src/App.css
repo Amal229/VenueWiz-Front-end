@@ -77,3 +77,8 @@ header {
   display: flex;
   gap: 15px; /* Spacing between links */
 }
+.nav-links a.active {
+  font-weight: bold;
+  color: black; /* Active link color */
+  text-decoration: underline;
+}
