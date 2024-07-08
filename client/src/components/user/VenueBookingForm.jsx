@@ -93,6 +93,8 @@ const VenueBookingForm = ({ user }) => {
                   onChange={handleDateChange}
                   value={formValues.date}
                   defaultValue={new Date()}
+                  limitEndYear={2}
+                  limitStartYear={1}
                   shouldDisableDate={isDateDisabled}
                 />
                 {/* <input
@@ -127,6 +129,7 @@ const VenueBookingForm = ({ user }) => {
                   id="package_name"
                   onChange={handleChange}
                 >
+                  <option value="">Select Package</option>
                   {venue.package?.map((pkg) => (
                     <option key={pkg._id} value={pkg.name}>
                       {pkg.name} {pkg.price}BD
