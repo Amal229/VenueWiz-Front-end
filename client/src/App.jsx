@@ -1,3 +1,7 @@
+
+import React from "react"
+import { Routes, Route } from "react-router-dom"
+import Invitation from "./components/Invitation"
 import './App.css'
 import { useState, useEffect } from 'react'
 import Venue from './components/Vendor/AddingVenuesForm'
@@ -6,17 +10,15 @@ import Categories from './components/Categories'
 import ViewVenues from './components/user/ViewVenues'
 import Dashboard from './components/DashBoard'
 import Nav from './components/Nav'
-// import Invitation from './components/Invitation'
 import VenueBookingForm from './components/user/VenueBookingForm'
 import Login from './components/Auth/Login'
 import Register from './components/Auth/Register'
 import EventDetials from './components/Vendor/EventDetails'
 import BookedEvents from './components/user/BookedEvents'
-//import { useState } from 'react'
-
 import VenueDetails from './components/user/VenueDetails'
 import About from './components/About'
 import Home from './components/Home'
+
 
 const App = () => {
   const [user, setUser] = useState(null)
