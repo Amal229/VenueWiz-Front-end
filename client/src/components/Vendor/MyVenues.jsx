@@ -23,7 +23,7 @@ const MyVenue = ({ user }) => {
       <div className="venue-container">
         {venues.map((venue) => (
           <Link
-            to={`/categories/${category_id}/venues/${venue._id}`}
+            to={`/categories/${venue.categories[0]}/venues/${venue._id}`}
             key={venue._id}
             className="venue-card"
           >

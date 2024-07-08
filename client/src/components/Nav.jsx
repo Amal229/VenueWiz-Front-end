@@ -1,5 +1,5 @@
 // navbar
-import { NavLink, Link } from "react-router-dom"
+import { NavLink, Link } from 'react-router-dom'
 
 // { user, handleLogOut }
 const Nav = ({ user, handleLogOut }) => {
@@ -21,9 +21,7 @@ const Nav = ({ user, handleLogOut }) => {
           // vendor nav
           user.type === true ? (
             <>
-              <NavLink to="/myVenue">
-                <h3>My Venues</h3>
-              </NavLink>
+              <NavLink to="/myVenue">My Venues</NavLink>
               <NavLink to="/dashboard" end>
                 Dashboard
               </NavLink>
