@@ -1,36 +1,37 @@
 import { useState, useEffect } from 'react'
-import '../App.css'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { BASE_URL } from '../services/api'
+import { GetAllVenue } from '../../services/Venue'
+
 const MyVenue = ({ user }) => {
-  const [MyVenue, setVenues] = useState([])
+  const [venues, setVenues] = useState([])
 
   useEffect(() => {
-    const fetchMyVenue = async () => {
-      try {
-        const response = await axios.get(`${BASE_URL}/venues/${user._id}`)
-        setVenues(response.data)
-      } catch (error) {
-        console.log('Error Connecting', error)
-      }
+    console.log(user)
+    if (!user) return
+    const getVendorVenues = async () => {
+      const data = await GetAllVenue(user.id)
+      console.log(data)
+      setVenues(data)
     }
-
-    fetchMyVenue()
-  }, [])
+    getVendorVenues()
+  }, [user])
 
   return (
-    <div className="MyVenue">
-      <h1>MyVenue</h1>
-      <div className="MyVenue-container">
-        {MyVenue.map((venue) => (
+    <div className="Venues">
+      <h1>My Venues</h1>
+      <div className="venue-container">
+        {venues.map((venue) => (
           <Link
-            to={`/venues/${venue._id}`}
+            to={`/categories/${category_id}/venues/${venue._id}`}
             key={venue._id}
-            className="user-card"
+            className="venue-card"
           >
-            <div className="info-wrapper">
+            <div className="venue-info-wrapper">
               <h2>{venue.name}</h2>
+            </div>
+            <div className="venue-img-wrapper">
+              <img src={venue.image} alt={venue.name} />
             </div>
           </Link>
         ))}

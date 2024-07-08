@@ -19,10 +19,10 @@ const Nav = ({ user, handleLogOut }) => {
         </NavLink>
         {user ? (
           // vendor nav
-          user.vendor === true ? (
+          user.type === true ? (
             <>
-              <NavLink to="/categories" end>
-                My Venues
+              <NavLink to="/myVenue">
+                <h3>My Venues</h3>
               </NavLink>
               <NavLink to="/dashboard" end>
                 Dashboard

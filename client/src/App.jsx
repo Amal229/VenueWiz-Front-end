@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Invitation from './components/Invitation'
@@ -15,10 +14,11 @@ import Register from './components/Auth/Register'
 import { CheckSession } from './services/Auth'
 import EventDetials from './components/Vendor/EventDetails'
 import BookedEvents from './components/user/BookedEvents'
-
 import VenueDetails from './components/user/VenueDetails'
 import About from './components/About'
 import Home from './components/Home'
+import MyVenue from './components/Vendor/MyVenues'
+import VendorVenueDetails from './components/Vendor/VenueDetails'
 
 
 const App = () => {
@@ -35,7 +35,7 @@ const App = () => {
   }
 
   useEffect(() => {
-    const token = localStorage.getItem("token")
+    const token = localStorage.getItem('token')
     if (token) {
       checkToken()
     }
@@ -46,11 +46,12 @@ const App = () => {
       <Nav user={user} handleLogOut={handleLogOut} />
       <main>
         <Routes>
-          {" "}
+          {' '}
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login setUser={setUser} />} />
           {/* <Route path="/" element={<Home />} /> */}
           <Route path="/categories" element={<Categories />} />
+          <Route path="/venues" element={<MyVenue />} />
           <Route path="/categories/:category_id" element={<ViewVenues />} />
           {/* should accept user */}
           <Route path="/dashboard" element={<Dashboard user={user} />} />
@@ -74,8 +75,11 @@ const App = () => {
             }
           />
           <Route path="Venue" element={<Venue />} />
+          <Route path="/myVenue" element={<MyVenue user={user} />} />
+
           <Route path="/bookedevents" element={<BookedEvents />} />
           <Route path="/eventdetails/:eventId" element={<EventDetials />} />
+          <Route path="/venues/:venue_id" element={<VendorVenueDetails />} />
         </Routes>
       </main>
     </div>
