@@ -4,7 +4,7 @@ import BookedEvents from './user/BookedEvents'
 const Dashboard = ({ user }) => {
   return (
     <div>
-      {user && user.vendor ? (
+      {user && user.type === true ? (
         <BookedVenues user={user} />
       ) : (
         <BookedEvents user={user} />
