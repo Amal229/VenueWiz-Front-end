@@ -22,11 +22,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px;
 }
 
 .Categories h1 {
   margin-bottom: 40px;
+  font-size: 3em;
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 400;
 }
 
 .category-container {
@@ -42,7 +44,7 @@ body {
   border-radius: 40px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
-  width: 500px;
+  width: 400px;
   text-decoration: none;
   color: black;
 }
@@ -61,6 +63,10 @@ body {
 
 .info-wrapper {
   padding: 10px;
+  font-size: 1.2em;
+  color: #000000;
+  font-family: 'Arimo', sans-serif;
+  font-weight: bold;
 }
 
 header {
@@ -147,4 +153,43 @@ header {
   color: #000000;
   font-family: 'Arimo', sans-serif;
   font-weight: bold;
+}
+
+.container-about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.left-about {
+  flex: 1;
+  margin-left: 80px;
+}
+
+.right-about {
+  flex: 1;
+}
+
+.left-about h1 {
+  margin: 0 0 40px 0;
+  font-size: 4em;
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 400;
+}
+
+.left-about h4 {
+  margin: 0;
+  font-size: 1.2em;
+
+  color: #000000;
+  font-family: 'Arimo', sans-serif;
+  font-weight: bold;
+  width: 75%;
+  line-height: 30px;
+}
+
+.right-about img {
+  max-width: 85%;
 }
