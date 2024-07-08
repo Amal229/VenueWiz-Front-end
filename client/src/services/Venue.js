@@ -15,6 +15,11 @@ export const GetVenueDetails = async (category_id, venue_id) => {
   }
 }
 
+export const GetAllVenue = async (vendor_id) => {
+  try {
+    const res = await Client.get(`/categories/venues/${vendor_id}`)
+
+
 export const GetVendorVenueDetails = async (venue_id) => {
   try {
     const res = await Client.get(`/venues/${venue_id}`)
