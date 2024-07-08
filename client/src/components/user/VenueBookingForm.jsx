@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import moment from 'moment'
+import DatePicker from 'rsuite/DatePicker'
+import 'rsuite/DatePicker/styles/index.css'
 import { GetVenueDetails } from '../../services/Venue'
 import { CreateEvent } from '../../services/Event'
 
-const VenueBookingForm = ({user}) => {
+const VenueBookingForm = ({ user }) => {
   const { category_id, venue_id } = useParams()
   const [venue, setVenue] = useState({})
   const [bookedDates, setBookedDates] = useState([])
@@ -12,7 +15,7 @@ const VenueBookingForm = ({user}) => {
   // userID from the user attributes,
   // venodrid from the venue details
   const [formValues, setFormValues] = useState({
-    date: '',
+    date: new Date(),
     guestNumbers: '',
     package_name: '',
     notes: ''
@@ -23,15 +26,30 @@ const VenueBookingForm = ({user}) => {
     console.log(formValues)
   }
 
+  const handleDateChange = (date) => {
+    setFormValues({ ...formValues, date })
+    console.log(formValues)
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     const { date, guestNumbers, notes } = formValues
 
     try {
-      const res = await CreateEvent({ date, guestNumbers, notes, package: formValues.package_name, userId: user.id, vendorId: venue.vendor_ref, venueId: venue._id })
-      console.log('created event',res);
+      const formattedDate = moment(date).format()
+      console.log(formattedDate)
+      const res = await CreateEvent({
+        bookingDate: formattedDate,
+        guestNumbers,
+        notes,
+        package: formValues.package_name,
+        userId: user.id,
+        vendorId: venue.vendor_ref,
+        venueId: venue._id
+      })
+      console.log('created event', res)
       setFormValues({
-        date: '',
+        date: new Date(),
         guestNumbers: '',
         package_name: '',
         notes: ''
@@ -42,8 +60,17 @@ const VenueBookingForm = ({user}) => {
     }
   }
 
+  const isDateDisabled = (date) => {
+    console.log('date', date)
+    const formattedDate = moment(date).format('YYYY-MM-DD')
+    return bookedDates.some((bookedDate) => {
+      const bookeddate = moment(bookedDate).format('YYYY-MM-DD')
+      return bookeddate === formattedDate
+    })
+  }
+
   useEffect(() => {
-    console.log('user', user);
+    console.log('user', user)
     const getvenuedetails = async () => {
       const data = await GetVenueDetails(category_id, venue_id)
       setVenue(data.venue)
@@ -62,16 +89,22 @@ const VenueBookingForm = ({user}) => {
             <form className="col" onSubmit={handleSubmit}>
               <div className="input-wrapper">
                 <label htmlFor="date">Date</label>
-                <input
-                  disabled={"08-07-2024"}
+                <DatePicker
+                  onChange={handleDateChange}
+                  value={formValues.date}
+                  defaultValue={new Date()}
+                  shouldDisableDate={isDateDisabled}
+                />
+                {/* <input
                   onChange={handleChange}
                   name="date"
                   type="date"
                   placeholder="Date of Event"
                   value={formValues.date}
                   required
-                />
+                /> */}
               </div>
+
               <div className="input-wrapper">
                 <label htmlFor="guestNumbers">Guest Numbers</label>
                 <input
@@ -89,14 +122,19 @@ const VenueBookingForm = ({user}) => {
                 {/* drop down menu */}
                 <label htmlFor="package_name">Package:</label>
 
-                <select name="package_name" id="package_name" onChange={handleChange}>
+                <select
+                  name="package_name"
+                  id="package_name"
+                  onChange={handleChange}
+                >
                   {venue.package?.map((pkg) => (
                     <option key={pkg._id} value={pkg.name}>
-                      {pkg.name}  {pkg.price}BD
+                      {pkg.name} {pkg.price}BD
                     </option>
                   ))}
                 </select>
               </div>
+
               <div className="input-wrapper">
                 <label htmlFor="notes">Notes</label>
                 <input
