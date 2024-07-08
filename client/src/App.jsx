@@ -5,7 +5,6 @@ import './App.css'
 import { useState, useEffect } from 'react'
 import Venue from './components/Vendor/AddingVenuesForm'
 import AddingVenuesForm from './components/Vendor/AddingVenuesForm'
-import { Routes, Route } from 'react-router-dom'
 import Categories from './components/Categories'
 import ViewVenues from './components/user/ViewVenues'
 import Dashboard from './components/DashBoard'
@@ -13,7 +12,6 @@ import Nav from './components/Nav'
 import VenueBookingForm from './components/user/VenueBookingForm'
 import Login from './components/Auth/Login'
 import Register from './components/Auth/Register'
-import { CheckSession } from './services/Auth'
 import EventDetials from './components/Vendor/EventDetails'
 import BookedEvents from './components/user/BookedEvents'
 //import { useState } from 'react'
@@ -23,7 +21,6 @@ import About from './components/About'
 import Home from './components/Home'
 import MyVenue from './components/Vendor/MyVenues'
 import VendorVenueDetails from './components/Vendor/VenueDetails'
-
 import EditVenuesForm from './components/Vendor/EditVenue'
 
 const App = () => {
@@ -59,7 +56,6 @@ const App = () => {
           <Route path="/venues" element={<MyVenue />} />
           <Route path="/categories/:category_id" element={<ViewVenues />} />
           {/* should accept user */}
-          <Route path="/dashboard" element={<Dashboard />} />
           <Route
             path="/venues/newvenue"
             element={<AddingVenuesForm user={user} />}

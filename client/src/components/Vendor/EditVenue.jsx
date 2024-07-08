@@ -6,7 +6,6 @@ import Client from '../../services/api'
 
 const EditVenuesForm = ({ user }) => {
   const [submittedVenue, setSubmittedVenue] = useState(null) //delete
-  const [venues, setVenues] = useState([]) //for update
   const [categories, setCategories] = useState([])
   const [editFormValues, setEditFormValues] = useState({
     name: '',
@@ -16,7 +15,7 @@ const EditVenuesForm = ({ user }) => {
     image: '',
     packages: [],
     price: 0,
-    categories: []
+    categories: ''
   })
   const { venue_id } = useParams()
 
