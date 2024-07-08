@@ -29,6 +29,7 @@ const BookedEvents = ({ user }) => {
             <p>{event.package}</p>
             <p>{event.userId.phoneNumber}</p>
             <p>{event.notes !== '' ? event.notes : '-'}</p>
+            <Link to={`/eventdetails/${event._id}`}>view Details</Link>
           </div>
         ))
       ) : (

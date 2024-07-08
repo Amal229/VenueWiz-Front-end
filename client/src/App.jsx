@@ -8,8 +8,12 @@ import Dashboard from './components/DashBoard'
 import Nav from './components/Nav'
 // import Invitation from './components/Invitation'
 import VenueBookingForm from './components/user/VenueBookingForm'
-import SignIn from './components/Auth/Login'
+import Login from './components/Auth/Login'
 import Register from './components/Auth/Register'
+import EventDetials from './components/Vendor/EventDetails'
+import BookedEvents from './components/user/BookedEvents'
+//import { useState } from 'react'
+
 import { CheckSession } from './services/Auth'
 import VenueDetails from './components/user/VenueDetails'
 import About from './components/About'
@@ -42,12 +46,11 @@ const App = () => {
         <Routes>
           {' '}
           <Route path="/register" element={<Register />} />
-          <Route path="/signin" element={<SignIn setUser={setUser} />} />
+          <Route path="/login" element={<Login setUser={setUser} />} />
           {/* <Route path="/" element={<Home />} /> */}
           <Route path="/categories" element={<Categories />} />
           <Route path="/categories/:category_id" element={<ViewVenues />} />
           {/* should accept user */}
-
           <Route path="/dashboard" element={<Dashboard user={user} />} />
           <Route
             path="/categories/:category_id/venues/:venue_id"
@@ -69,6 +72,8 @@ const App = () => {
             }
           /> */}
           <Route path="Venue" element={<Venue />} />
+          <Route path="/bookedevents" element={<BookedEvents />} />
+          <Route path="/eventdetails/:eventId" element={<EventDetials />} />
         </Routes>
       </main>
     </div>
