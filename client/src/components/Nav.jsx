@@ -1,8 +1,8 @@
 // navbar
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 // { user, handleLogOut }
-const Nav = ({ user }) => {
+const Nav = ({ user, handleLogOut }) => {
   return (
     <header>
       <NavLink to="/">
@@ -26,9 +26,9 @@ const Nav = ({ user }) => {
               <NavLink to="/dashboard" end>
                 Dashboard
               </NavLink>
-              <NavLink to="/" end>
+              <Link onClick={handleLogOut} to="/" end>
                 Logout
-              </NavLink>
+              </Link>
             </>
           ) : (
             // normal user nav
