@@ -85,3 +85,8 @@ header {
   text-align: center;
   margin: 0;
 }
+/* Remove underline for the title inside links */
+a .title,
+a h3.title {
+  text-decoration: none;
+}
