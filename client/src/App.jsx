@@ -54,7 +54,7 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard user={user} />} />
 
           {/* vendor routes */}
-          <Route path="/venues" element={<MyVenue />} />
+          <Route path="/venues" element={<MyVenue user={ user } />} />
           <Route
             path="/venues/newvenue"
             element={<AddingVenuesForm user={user} />}
