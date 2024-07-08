@@ -34,7 +34,7 @@ export const GetEventDetails = async (event_id) => {
 
 export const CreateEvent = async (data) => {
   try {
-    const res = await Client.get(`/event`, data)
+    const res = await Client.post(`/event`, data)
     console.log('result', res.data)
 
     return res
