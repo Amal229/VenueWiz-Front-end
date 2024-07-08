@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { BASE_URL } from '../../services/api'
 
 const VenueDetails = () => {
@@ -52,6 +52,11 @@ const VenueDetails = () => {
                   Website: <a href={venue.website}>{venue.website}</a>
                 </h3>
               )}
+              <Link
+                to={`/categories/${category_id}/venues/${venue_id}/newEvent`}
+              >
+                <button>Book Venue</button>
+              </Link>
             </div>
           </div>
         </div>
