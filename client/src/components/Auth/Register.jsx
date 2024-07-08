@@ -16,18 +16,30 @@ const Register = () => {
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
+    console.log(formValues)
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    let res = await RegisterUser({
-      name: formValues.name,
-      email: formValues.email,
-      password: formValues.password,
-      phoneNumber: formValues.phoneNumber,
-      userType: formValues.userType
-    })
-    console.log(res)
+    if (formValues.userType === 'vendor') {
+      let res = await RegisterUser({
+        name: formValues.name,
+        email: formValues.email,
+        password: formValues.password,
+        phoneNumber: formValues.phoneNumber,
+        vendor: true
+      })
+      console.log(res)
+    } else {
+      let res = await RegisterUser({
+        name: formValues.name,
+        email: formValues.email,
+        password: formValues.password,
+        phoneNumber: formValues.phoneNumber
+      })
+      console.log(res)
+    }
+
     setFormValues({
       name: '',
       email: '',

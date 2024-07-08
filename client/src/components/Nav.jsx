@@ -19,7 +19,7 @@ const Nav = ({ user, handleLogOut }) => {
         </NavLink>
         {user ? (
           // vendor nav
-          user.vendor === true ? (
+          user.type === true ? (
             <>
               <NavLink to="/myVenue">
                 <h3>My Venues</h3>
