@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import moment from 'moment'
 import { GetUserEvents } from '../../services/Event'
 
@@ -11,11 +12,11 @@ const BookedEvents = ({ user }) => {
 
   useEffect(() => {
     const getuserevents = async () => {
-      const data = await GetUserEvents(user.id)
+      const data = await GetUserEvents(user?.id)
       setEvents(data)
     }
     getuserevents()
-  }, [])
+  }, [user])
 
   return (
     <div>
