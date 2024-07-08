@@ -18,6 +18,8 @@ import VenueDetails from './components/user/VenueDetails'
 import About from './components/About'
 import Home from './components/Home'
 import MyVenue from './components/Vendor/MyVenues'
+import VendorVenueDetails from './components/Vendor/VenueDetails'
+
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -74,8 +76,10 @@ const App = () => {
           />
           <Route path="Venue" element={<Venue />} />
           <Route path="/myVenue" element={<MyVenue user={user} />} />
+
           <Route path="/bookedevents" element={<BookedEvents />} />
           <Route path="/eventdetails/:eventId" element={<EventDetials />} />
+          <Route path="/venues/:venue_id" element={<VendorVenueDetails />} />
         </Routes>
       </main>
     </div>
