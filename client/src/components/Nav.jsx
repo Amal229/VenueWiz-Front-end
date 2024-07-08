@@ -39,7 +39,7 @@ const Nav = ({ user, handleLogOut }) => {
               <NavLink to="/dashboard" end>
                 Dashboard
               </NavLink>
-              <NavLink to="/" end>
+              <NavLink onClick={handleLogOut} to="/" end>
                 Logout
               </NavLink>
             </>

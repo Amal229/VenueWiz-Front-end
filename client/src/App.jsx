@@ -15,6 +15,7 @@ import Register from './components/Auth/Register'
 import { CheckSession } from './services/Auth'
 import EventDetials from './components/Vendor/EventDetails'
 import BookedEvents from './components/user/BookedEvents'
+
 import VenueDetails from './components/user/VenueDetails'
 import About from './components/About'
 import Home from './components/Home'
