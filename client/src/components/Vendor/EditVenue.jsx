@@ -92,75 +92,83 @@ const EditVenuesForm = ({ user }) => {
   }, [])
   return (
     <div className="Forms">
+      <h2>Edit your Venue:</h2>
       {editFormValues && (
         <form onSubmit={handleUpdate}>
           <div>
-            <label htmlFor="editName">Name</label>
+            <label htmlFor="editName">Name:</label>
             <input
               onChange={handleEditChange}
               name="name"
               type="text"
               value={editFormValues.name}
+              placeholder="Edit venue name"
               required
             />
           </div>
           <div>
-            <label htmlFor="editLocation">Location</label>
+            <label htmlFor="editLocation">Location URL:</label>
             <input
               onChange={handleEditChange}
               name="location"
               type="text"
               value={editFormValues.location}
+              placeholder="Edit venue location URL"
               required
             />
           </div>
           <div>
-            <label htmlFor="editdescription">description</label>
+            <label htmlFor="editdescription">Description:</label>
             <input
               onChange={handleEditChange}
               name="description"
               type="text"
               value={editFormValues.description}
+              placeholder="Edit venue description"
               required
             />
           </div>
           <div>
-            <label htmlFor="editwebsite">website</label>
+            <label htmlFor="editwebsite">Website URL:</label>
             <input
               onChange={handleEditChange}
               name="website"
               type="text"
               value={editFormValues.website}
+              placeholder="Edit venue website URL"
               required
             />
           </div>
           <div>
-            <label htmlFor="editimage">image</label>
+            <label htmlFor="editimage">Image URL:</label>
             <input
               onChange={handleEditChange}
               name="image"
               type="text"
               value={editFormValues.image}
+              placeholder="Edit venue image URL"
               required
             />
           </div>
           <div>
-            <label htmlFor="editprice">price</label>
+            <label htmlFor="editprice">Price:</label>
             <input
               onChange={handleEditChange}
               name="price"
               type="number"
               value={editFormValues.price}
+              placeholder="Edit venue price"
               required
             />
           </div>
           <div>
-            <label htmlFor="editpackages">packages</label>
+            <label htmlFor="editpackages">Packages:</label>
             <input
               onChange={handleEditChange}
               name="packages"
               type="text"
               value={editFormValues.packages}
+              placeholder="Edit package1,package2..... "
               required
             />
           </div>

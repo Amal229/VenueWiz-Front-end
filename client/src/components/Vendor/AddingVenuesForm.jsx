@@ -108,7 +108,7 @@ const AddingVenuesForm = ({ user }) => {
               name="image"
               type="text"
               value={formValues.image}
-              placeholder="Enter image URL"
+              placeholder="Enter venue image URL"
               required
             />
           </div>
