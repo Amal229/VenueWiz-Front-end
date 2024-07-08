@@ -46,3 +46,42 @@ body {
 .info-wrapper {
   padding: 10px;
 }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.title {
+  font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 24px;
+  color: black;
+  text-align: center;
+  margin: 0;
+  text-decoration: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-optical-sizing: auto;
+  font-family: "Arimo", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: black;
+  transition: color 0.3s;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+.nav-links a.active {
+  font-weight: bold;
+  color: black;
+  text-decoration: underline;
+}
