@@ -35,7 +35,7 @@ const Register = () => {
       confirmPassword: '',
       userType: ''
     })
-    navigate('/signin')
+    navigate('/login')
   }
 
   return (
