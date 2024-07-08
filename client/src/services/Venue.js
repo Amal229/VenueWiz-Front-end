@@ -15,10 +15,20 @@ export const GetVenueDetails = async (category_id, venue_id) => {
   }
 }
 
+export const GetCategories = async () => {
+  try {
+    const res = await Client.get(`/categories`)
+    // returns categories
+    console.log('category result', res.data)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
 export const GetAllVenue = async (vendor_id) => {
   try {
     const res = await Client.get(`/categories/venues/${vendor_id}`)
-
+    console.log('result', res.data)
     return res.data
   } catch (error) {
     throw error

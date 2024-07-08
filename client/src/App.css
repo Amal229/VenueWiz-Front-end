@@ -1,5 +1,9 @@
-html, body, #root, #root>div {
-  min-height: 100vh
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+html,
+body,
+#root,
+#root > div {
+  min-height: 100vh;
 }
 
 body {
@@ -18,11 +22,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px;
 }
 
 .Categories h1 {
   margin-bottom: 40px;
+  font-size: 3em;
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 400;
 }
 
 .category-container {
@@ -38,7 +44,7 @@ body {
   border-radius: 40px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
-  width: 500px;
+  width: 400px;
   text-decoration: none;
   color: black;
 }
@@ -57,6 +63,10 @@ body {
 
 .info-wrapper {
   padding: 10px;
+  font-size: 1.2em;
+  color: #000000;
+  font-family: 'Arimo', sans-serif;
+  font-weight: bold;
 }
 
 header {
@@ -64,11 +74,11 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 40px;
-  background-color: #5271FF;
+  background-color: #5271ff;
 }
 
 .title {
-  font-family: "Arimo", sans-serif;
+  font-family: 'Arimo', sans-serif;
   font-optical-sizing: auto;
   font-weight: bold;
   font-style: normal;
@@ -82,7 +92,7 @@ header {
 .nav-links a {
   text-decoration: none;
   font-optical-sizing: auto;
-  font-family: "Arimo", sans-serif;
+  font-family: 'Arimo', sans-serif;
   font-weight: bold;
   font-size: 16px;
   color: black;
@@ -103,4 +113,83 @@ header {
   min-width: 100vw;
   height: 100%;
   overflow-y: scroll;
+}
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.left-img {
+  margin-right: 20px;
+  width: 65%;
+  display: flex;
+  justify-content: center;
+}
+
+.left-img img {
+  max-width: 60%;
+  height: auto;
+}
+
+.right-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.right-title h1 {
+  margin: 0;
+  font-size: 4em;
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.right-title h4 {
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: normal;
+  color: #000000;
+  font-family: 'Arimo', sans-serif;
+  font-weight: bold;
+}
+
+.container-about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.left-about {
+  flex: 1;
+  margin-left: 80px;
+}
+
+.right-about {
+  flex: 1;
+}
+
+.left-about h1 {
+  margin: 0 0 40px 0;
+  font-size: 4em;
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 400;
+}
+
+.left-about h4 {
+  margin: 0;
+  font-size: 1.2em;
+
+  color: #000000;
+  font-family: 'Arimo', sans-serif;
+  font-weight: bold;
+  width: 75%;
+  line-height: 30px;
+}
+
+.right-about img {
+  max-width: 85%;
 }

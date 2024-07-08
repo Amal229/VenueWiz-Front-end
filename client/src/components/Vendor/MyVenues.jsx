@@ -7,21 +7,23 @@ const MyVenue = ({ user }) => {
   const [venues, setVenues] = useState([])
 
   useEffect(() => {
-    console.log(user)
-    if (!user) return
-    const getVendorVenues = async () => {
-      const data = await GetAllVenue(user.id)
-      console.log(data)
-      setVenues(data)
+    if (user) {
+      
+      const getVendorVenues = async () => {
+        const data = await GetAllVenue(user.id)
+        console.log(data)
+        setVenues(data)
+      }
+      getVendorVenues()
     }
-    getVendorVenues()
   }, [user])
 
   return (
     <div className="Venues">
       <h1>My Venues</h1>
+      <Link to={`/venues/newvenue`}>Add venue</Link>
       <div className="venue-container">
-        {venues.map((venue) => (
+        {venues.length !== 0 ? venues.map((venue) => (
           <Link
             to={`/categories/${venue.categories[0]}/venues/${venue._id}`}
             key={venue._id}
@@ -34,7 +36,9 @@ const MyVenue = ({ user }) => {
               <img src={venue.image} alt={venue.name} />
             </div>
           </Link>
-        ))}
+        )) :
+          <h3>No Venues Yet</h3>
+        }
       </div>
     </div>
   )

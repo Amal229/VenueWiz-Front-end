@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <div className="container">
+    <div className="container-about">
       <div className="left-about">
         <h1>About Us</h1>
         <h4>
@@ -12,7 +12,7 @@ const About = () => {
         </h4>
       </div>
       <div className="right-about">
-        <img src="https://i.imgur.com/fVPkFEb.png" />
+        <img src="images/About.png" />
       </div>
     </div>
   )

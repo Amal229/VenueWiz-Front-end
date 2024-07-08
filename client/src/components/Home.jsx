@@ -2,7 +2,7 @@ const Home = () => {
   return (
     <div className="container">
       <div className="left-img">
-        <img src="https://i.imgur.com/UeG4Jpv.png" />
+        <img src="../../images/home.png" />
       </div>
       <div className="right-title">
         <h1>VenueWiz</h1>
