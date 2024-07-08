@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Client from '../../services/api'
 import { useParams } from 'react-router-dom'
 import { BASE_URL } from '../../services/api'
-
+import { Link } from 'react-router-dom'
 const VenueDetails = () => {
   const [venue, setVenue] = useState(null)
   const { venue_id } = useParams()
@@ -52,6 +52,10 @@ const VenueDetails = () => {
                   Website: <a href={venue.website}>{venue.website}</a>
                 </h3>
               )}
+
+              <Link to={`/venues/${venue_id}/editvenue`}>
+                <button>Edit Venue</button>
+              </Link>
             </div>
           </div>
         </div>

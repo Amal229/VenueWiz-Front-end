@@ -19,7 +19,6 @@ import VenueDetails from './components/user/VenueDetails'
 import About from './components/About'
 import Home from './components/Home'
 import VendorVenueDetails from './components/Vendor/VenueDetails'
-import { CheckSession } from './services/Auth'
 
 const App = () => {
   const [user, setUser] = useState(null)
