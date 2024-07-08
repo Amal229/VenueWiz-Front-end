@@ -46,6 +46,39 @@ body {
 .info-wrapper {
   padding: 10px;
 }
-.nav-links:hover {
-  cursor: pointer;
+/* General styles for the Nav component */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+/* Styles for the title */
+.title {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin: 0;
+}
+
+/* Styles for the navigation links */
+.nav-links a {
+  text-decoration: none; /* Remove underline */
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #555;
+  transition: color 0.3s;
+}
+/* Container for navigation links */
+.nav-links {
+  display: flex;
+  gap: 15px; /* Spacing between links */
+}
+.nav-links a.active {
+  font-weight: bold;
+  color: black; /* Active link color */
+  text-decoration: underline;
 }
