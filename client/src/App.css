@@ -46,16 +46,42 @@ body {
 .info-wrapper {
   padding: 10px;
 }
-.nav-links:hover {
-  cursor: pointer;
+/* General styles for the Nav component */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f9fa; /* Light background color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
 }
-.nav-links a {
-  color: blue;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+
+/* Styles for the title */
+.title {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin: 0;
 }
-.nav-links a:hover {
-  background-color: gainsboro;
+
+/* General styles for the Nav component */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f9fa; /* Light background color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+/* Styles for the title */
+.title {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin: 0;
 }
