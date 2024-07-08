@@ -6,6 +6,8 @@ import { GetEventDetails } from '../services/Event'
 const Invitation = ({ invitationLink, user }) => {
   const { event_id } = useParams()
   const [event, setEvent] = useState(null)
+  const [paused, setPaused] = useState(true)
+  let voices
 
   const handleShare = async () => {
     try {
@@ -24,6 +26,23 @@ const Invitation = ({ invitationLink, user }) => {
     }
   }
 
+  const handleSpeech = (text) => {
+    let utterance = new SpeechSynthesisUtterance(text)
+    voices = speechSynthesis.getVoices()
+    console.log(voices)
+    // utterance.lang = 'en-US'
+    
+    setPaused(!paused)
+    if (paused) {
+      console.log('plays')
+      speechSynthesis.speak(utterance)
+      speechSynthesis.resume()
+    } else {
+      console.log('paused')
+      speechSynthesis.pause()
+    }
+  }
+
   useEffect(() => {
     const fetchEventDetails = async () => {
       const data = await GetEventDetails(event_id)
@@ -39,6 +58,8 @@ const Invitation = ({ invitationLink, user }) => {
 
   return (
     <div className="invitation-container">
+      <img src="" alt="friendly bear" />
+
       <h2>You're Invited to {user?.name}'s Event!</h2>
       {event ? (
         <>
@@ -47,6 +68,14 @@ const Invitation = ({ invitationLink, user }) => {
             {event.date}. The event will be held at {event.venueId.name}{' '}
             <a href={event.venueId.location}>Location</a>.
           </p>
+          <button
+            onClick={() =>
+              handleSpeech(`We're thrilled to invite you to this event on ${event.day},{' '}
+            ${event.date}. The event will be held at ${event.venueId.name}`)
+            }
+          >
+            {paused ? 'Speak' : 'Pause'}
+          </button>
         </>
       ) : (
         <p>Loading</p>
