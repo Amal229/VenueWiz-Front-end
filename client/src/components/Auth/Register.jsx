@@ -1,17 +1,17 @@
-import { useState } from 'react'
-import { RegisterUser } from '../../services/Auth'
-import { useNavigate } from 'react-router-dom'
+import { useState } from "react"
+import { RegisterUser } from "../../services/Auth"
+import { useNavigate } from "react-router-dom"
 
 const Register = () => {
   let navigate = useNavigate()
 
   const [formValues, setFormValues] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    phoneNumber: '',
-    userType: ''
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    phoneNumber: "",
+    userType: "",
   })
 
   const handleChange = (e) => {
@@ -21,13 +21,13 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (formValues.userType === 'vendor') {
+    if (formValues.userType === "vendor") {
       let res = await RegisterUser({
         name: formValues.name,
         email: formValues.email,
         password: formValues.password,
         phoneNumber: formValues.phoneNumber,
-        vendor: true
+        vendor: true,
       })
       console.log(res)
     } else {
@@ -35,24 +35,25 @@ const Register = () => {
         name: formValues.name,
         email: formValues.email,
         password: formValues.password,
-        phoneNumber: formValues.phoneNumber
+        phoneNumber: formValues.phoneNumber,
       })
       console.log(res)
     }
 
     setFormValues({
-      name: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
-      userType: ''
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+      userType: "",
     })
-    navigate('/login')
+    navigate("/login")
   }
 
   return (
     <div className="Forms">
       <div className="Forms-container">
+        <h1>Register</h1>
         <form className="Forms-add" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="name">Name</label>
