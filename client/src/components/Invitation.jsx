@@ -2,12 +2,18 @@ import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import moment from "moment"
 import { GetEventDetails } from "../services/Event"
+import { useRive } from 'rive-react'
+
+import RiveComponent from '@rive-app/react-canvas'
 
 const Invitation = ({ invitationLink, user }) => {
   const { event_id } = useParams()
   const [event, setEvent] = useState(null)
   const [paused, setPaused] = useState(true)
   const [voices, setVoices] = useState([])
+  const { Rive, stateMachine } = useRive({
+    resourceName: 'login_screen_character'
+  })
 
   const handleShare = async () => {
     try {
@@ -28,8 +34,8 @@ const Invitation = ({ invitationLink, user }) => {
 
   const handleSpeech = (text) => {
     let utterance = new SpeechSynthesisUtterance(text)
-    utterance.voice =
-      voices.find((voice) => voice.lang === "en-US") || voices[0]
+    // utterance.voice =
+    //   voices.find((voice) => voice.lang === "en-US") || voices[0]
     utterance.lang = "en-US"
 
     if (paused) {
@@ -72,7 +78,11 @@ const Invitation = ({ invitationLink, user }) => {
         alt="Friendly bear"
         className={`character ${paused ? "" : "speaking"}`}
       />
-
+      <RiveComponent
+        src="/images/speaking_bear.riv"
+       
+        style={{ width: 'auto', height: '400px', verticalAlign: 'top' }} 
+      />
       <h2>You're Invited to {user?.name}'s Event!</h2>
       {event ? (
         <>
