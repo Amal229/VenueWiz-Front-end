@@ -16,6 +16,7 @@ const VenueBookingForm = ({ user }) => {
   // userID from the user attributes,
   // venodrid from the venue details
   const [formValues, setFormValues] = useState({
+    name: '',
     date: new Date(),
     guestNumbers: '',
     package_name: '',
@@ -37,6 +38,7 @@ const VenueBookingForm = ({ user }) => {
     try {
       const formattedDate = moment(date).format()
       const res = await CreateEvent({
+        name: formValues.name,
         bookingDate: formattedDate,
         guestNumbers,
         notes,
@@ -47,6 +49,7 @@ const VenueBookingForm = ({ user }) => {
       })
       console.log('created event', res)
       setFormValues({
+        name: '',
         date: new Date(),
         guestNumbers: '',
         package_name: '',
@@ -84,13 +87,13 @@ const VenueBookingForm = ({ user }) => {
             <h3>{venue.name}</h3>
             <form className="col" onSubmit={handleSubmit}>
               <div className="input-wrapper">
-                <label htmlFor="eventName">Event Name</label>
+                <label htmlFor="name">Event Name</label>
                 <input
                   onChange={handleChange}
-                  name="eventName"
+                  name="name"
                   type="text"
                   placeholder="Enter name"
-                  value={formValues.eventName}
+                  value={formValues.name}
                   required
                 />
               </div>

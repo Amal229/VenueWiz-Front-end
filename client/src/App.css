@@ -216,6 +216,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   width: 250px;
+  height: 250px;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -440,4 +441,39 @@ h1 {
   border-radius: 10px;
   text-decoration: none;
   background-color: #fff;
+}
+
+.delete-button {
+  padding: 10px;
+  background-color: #5271ff;
+  color: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 150px;
+  height: 40px;
+  font-size: 16px;
+  font-family: 'Arimo', sans-serif;
+  font-style: normal;
+  font-size: large;
+  margin-top: 250px;
+}
+
+.Link-new-venue {
+  background-color: #5271ff;
+  color: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 150px;
+  height: 40px;
+  font-size: 16px;
+  font-family: 'Arimo', sans-serif;
+  font-style: normal;
+  font-size: large;
+}
+
+.Button-delete-venue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }

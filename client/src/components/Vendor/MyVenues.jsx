@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { GetAllVenue } from '../../services/Venue'
 import VenueCard from './VenueCard'
+import '../../App.css'
 
 const MyVenue = ({ user }) => {
   const [venues, setVenues] = useState([])
@@ -12,7 +13,6 @@ const MyVenue = ({ user }) => {
 
   useEffect(() => {
     if (user) {
-      
       const getVendorVenues = async () => {
         const data = await GetAllVenue(user.id)
         console.log(data)
@@ -25,20 +25,25 @@ const MyVenue = ({ user }) => {
   return (
     <div className="Venues">
       <h1>My Venues</h1>
-      <Link to={`/venues/newvenue`}>Add venue</Link>
+
       <div className="venue-container">
-        {venues.length !== 0 ? venues.map((venue) => (
-          <VenueCard
-            path={`/categories/${venue.categories[0]}/venues/${venue._id}`}
-            key={venue._id}
-            venue={venue}
-            onDelete={removeVenue}
-          >
-            
-          </VenueCard>
-        )) :
+        {venues.length !== 0 ? (
+          venues.map((venue) => (
+            <VenueCard
+              path={`/categories/${venue.categories[0]}/venues/${venue._id}`}
+              key={venue._id}
+              venue={venue}
+              onDelete={removeVenue}
+            ></VenueCard>
+          ))
+        ) : (
           <h3>No Venues Yet</h3>
-        }
+        )}
+      </div>
+      <div className="Button-delete-venue">
+        <Link to={`/venues/newvenue`}>
+          <button className="Link-new-venue"> Add New venue</button>
+        </Link>
       </div>
     </div>
   )
