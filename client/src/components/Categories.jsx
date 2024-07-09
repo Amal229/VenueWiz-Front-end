@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react"
-import "../App.css"
-import axios from "axios"
-import { Link } from "react-router-dom"
-import { BASE_URL } from "../services/api"
+import { useState, useEffect } from 'react'
+import '../App.css'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
+import { BASE_URL } from '../services/api'
 const Categories = () => {
   const [categories, setCategories] = useState([])
 
@@ -12,7 +12,7 @@ const Categories = () => {
         const response = await axios.get(`${BASE_URL}/categories`)
         setCategories(response.data)
       } catch (error) {
-        console.log("Error Connecting", error)
+        console.log('Error Connecting', error)
       }
     }
 
@@ -29,7 +29,7 @@ const Categories = () => {
             key={category._id}
             className="category-card"
           >
-            <div className="info-wrapper">
+            <div className="-info-wrapper">
               <h2>{category.name}</h2>
             </div>
             <div className="img-wrapper">

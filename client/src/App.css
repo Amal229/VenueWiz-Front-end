@@ -73,7 +73,13 @@ main {
   font-family: 'Arimo', sans-serif;
   font-weight: bold;
 }
+.-info-wrapper {
+  padding: 10px;
+  font-size: 1.2em;
 
+  font-family: 'Arimo', sans-serif;
+  font-weight: bold;
+}
 header {
   display: flex;
   justify-content: space-between;
@@ -221,7 +227,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   width: 250px;
-  height: 250px;
+  /*height: 250px;*/
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -266,13 +272,13 @@ h1 {
 }
 
 .venue-card-detail {
-  background-color: #fcfcfc;
+  background-color: #fcfcfc00;
   display: flex;
   justify-content: space-between;
   margin: 20px auto;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px #5271ff;
+  /*box-shadow: 0 4px 8px #5271ff;*/
   width: 80%;
   max-width: 1200px;
 }
@@ -287,7 +293,7 @@ h1 {
 
 .venue-img-wrapper-detail img {
   width: 100%;
-  height: 300px;
+  height: 100%;
   border-radius: 10px;
   object-fit: cover;
 }
@@ -317,6 +323,9 @@ h1 {
 .venue-info-wrapper-detail ul {
   list-style-type: none;
   padding: 0;
+  font-size: 1em;
+  font-family: 'Arimo', sans-serif;
+  font-weight: bold;
 }
 
 .venue-info-wrapper-detail li {
