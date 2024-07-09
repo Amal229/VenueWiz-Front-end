@@ -512,29 +512,6 @@ button:disabled {
   background-color: #fff;
 }
 
-
-.event-details {
-  background-color: #fff;
-  color: #000;
-  font-family: 'Arimo', sans-serif;
-  font-style: normal;
-  font-size: medium;
-  font-weight: bold;
-
-  border-radius: 20px;
-  margin-top: 50px;
-  width: 20%;
-  padding: 20px;
-}
-
-.event-h3 {
-  color: cornflowerblue;
-}
-.events-h1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 canvas {
   width: 800px;
   height: auto;
@@ -573,4 +550,74 @@ canvas {
   justify-content: center;
   align-items: center;
   padding: 20px;
+}
+
+/**booked events**/
+
+.events-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.events-h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.info-wrapper {
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 35px;
+  padding: 15px;
+  width: 300px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.info-wrapper:hover {
+  transform: scale(1.05);
+}
+
+.event-h3 {
+  font-size: 1.5em;
+  color: #5271ff;
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 5px 0;
+  color: black;
+  font-family: 'Arimo', sans-serif;
+}
+
+.details-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.details-link:hover {
+  background-color: #0056b3;
+}
+
+.no-events {
+  font-size: 1.2em;
+  color: #888;
+  text-align: center;
+  width: 100%;
 }
