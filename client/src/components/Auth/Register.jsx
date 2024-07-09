@@ -51,11 +51,11 @@ const Register = () => {
   }
 
   return (
-    <div className="signin col">
-      <div className="card-overlay centered">
-        <form className="col" onSubmit={handleSubmit}>
-          <div className="input-wrapper">
-            <label className="name">Name</label>
+    <div className="Forms">
+      <div className="Forms-container">
+        <form className="Forms-add" onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="name">Name</label>
             <input
               onChange={handleChange}
               name="name"
@@ -65,8 +65,8 @@ const Register = () => {
               required
             />
           </div>
-          <div className="input-wrapper">
-            <label className="email">Email</label>
+          <div>
+            <label htmlFor="email">Email</label>
             <input
               onChange={handleChange}
               name="email"
@@ -77,8 +77,8 @@ const Register = () => {
             />
           </div>
 
-          <div className="input-wrapper">
-            <label className="password">Password</label>
+          <div>
+            <label htmlFor="password">Password</label>
             <input
               onChange={handleChange}
               type="password"
@@ -87,8 +87,8 @@ const Register = () => {
               required
             />
           </div>
-          <div className="input-wrapper">
-            <label className="confirmPassword">Confirm Password</label>
+          <div>
+            <label htmlFor="confirmPassword">Confirm Password</label>
             <input
               onChange={handleChange}
               type="password"
@@ -96,8 +96,8 @@ const Register = () => {
               value={formValues.confirmPassword}
               required
             />
-            <div className="input-wrapper">
-              <label className="phoneNumber">Phone Number</label>
+            <div>
+              <label htmlFor="phoneNumber">Phone Number</label>
               <input
                 onChange={handleChange}
                 name="phoneNumber"
