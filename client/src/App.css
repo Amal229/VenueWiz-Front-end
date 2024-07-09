@@ -630,3 +630,104 @@ p {
   text-align: center;
   width: 100%;
 }
+
+.booking-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Arimo', sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 15px;
+  color: #5271ff;
+}
+
+.booking-form-container-small {
+  background-color: white;
+  border-radius: 25px;
+  height: 70%;
+  padding: 2% 5%;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 80%;
+
+}
+/* 
+
+
+.booking-form-container input,
+.booking-form-container select,
+.booking-form-container input[type=text] {
+  padding: 4%;
+  border: none;
+  border-radius: 50px;
+  color: #5271ff;
+  font-family: 'Arimo', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  background-color: #f0f1ff;
+}
+
+.input-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 100px;
+} */
+
+/* .input-field input,
+.input-field select {
+  min-width: 100px;
+  padding: 2%;
+} */
+
+
+.booking-form .input-field input,
+.booking-form .input-field select,
+.booking-form .input-field .react-datepicker-wrapper {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 50px;
+  padding: 10px;
+  box-sizing: border-box;
+  color: #5271ff;
+  background-color: #f0f1ff;
+}
+
+.booking-form .input-field .react-datepicker-wrapper input {
+  height: 100%;
+}
+
+.booking-form .input-field select {
+  appearance: none; 
+}
+
+.booking-form button {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 50px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.booking-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.booking-form input::placeholder,
+.booking-form textarea::placeholder,
+.booking-form select::placeholder {
+  color: #AAB9FF;
+}
