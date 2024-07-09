@@ -12,14 +12,15 @@ import Nav from './components/Nav'
 import VenueBookingForm from './components/user/VenueBookingForm'
 import Login from './components/Auth/Login'
 import Register from './components/Auth/Register'
-import { CheckSession } from './services/Auth'
 import EventDetials from './components/Vendor/EventDetails'
-import EditVenuesForm from './components/Vendor/EditVenue'
+import BookedEvents from './components/user/BookedEvents'
+import { CheckSession } from './services/Auth'
 import VenueDetails from './components/user/VenueDetails'
 import About from './components/About'
 import Home from './components/Home'
 import MyVenue from './components/Vendor/MyVenues'
 import VendorVenueDetails from './components/Vendor/VenueDetails'
+import EditVenuesForm from './components/Vendor/EditVenue'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -55,6 +56,9 @@ const App = () => {
 
           {/* vendor routes */}
           <Route path="/venues" element={<MyVenue user={user} />} />
+          <Route path="/venues" element={<MyVenue />} />
+          <Route path="/categories/:category_id" element={<ViewVenues />} />
+          {/* should accept user */}
           <Route
             path="/venues/newvenue"
             element={<AddingVenuesForm user={user} />}

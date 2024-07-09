@@ -410,11 +410,115 @@ button:disabled {
   background-color: #aaa;
 }*/
 
-.invitation-container {
+.Forms {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 50px;
+  height: 100vh;
+  font-family: 'Arimo', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 15px;
+  color: #5271ff;
+}
+
+.Forms h2 {
+  align-self: center;
+}
+
+.Forms form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.Forms input,
+.Forms select {
+  padding: 20px;
+  border: 1px solid #c4bdbd;
+  border-radius: 50px;
+  margin-top: 5px;
+  color: #5271ff;
+  font-family: 'Arimo', sans-serif;
+  font-style: normal;
+  font-size: large;
+  font-weight: bold;
+  background-color: #f0f1ff;
+}
+
+.Forms button {
+  width: 100%;
+  padding: 10px;
+  background-color: #5271ff;
+  color: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Arimo', sans-serif;
+  font-style: normal;
+  font-size: large;
+}
+
+.Forms button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.Forms-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  margin-left: 350px;
+  width: 50%;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 20px;
+  margin-top: 50px;
+}
 
-  min-height: 80vh;
+.Forms input::placeholder {
+  color: #5271ff;
+  font-family: 'Arimo', sans-serif;
+  font-weight: bold;
+  opacity: 0.6;
+}
+.Forms-add {
+  width: 70%;
+}
+.Forms select option {
+  background-color: #fff;
+  color: #000;
+  font-family: 'Arimo', sans-serif;
+  font-style: normal;
+  font-size: large;
+  font-weight: bold;
+  opacity: 0.6;
+}
+
+.EventDetailsVendor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: #fff;
+}
+.info-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 350px;
+  width: 50%;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 20px;
+  margin-top: 50px;
 }
