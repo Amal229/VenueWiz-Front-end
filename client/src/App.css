@@ -394,3 +394,15 @@ h1 {
   background-color: #ccc;
   cursor: not-allowed;
 }
+
+.EventDetailsVendor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: #fff;
+}
