@@ -441,15 +441,25 @@ h1 {
   text-decoration: none;
   background-color: #fff;
 }
-.info-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: 350px;
-  width: 50%;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
+
+.event-details {
+  background-color: #fff;
+  color: #000;
+  font-family: 'Arimo', sans-serif;
+  font-style: normal;
+  font-size: medium;
+  font-weight: bold;
   border-radius: 20px;
   margin-top: 50px;
+  width: 20%;
+  padding: 20px;
+}
+
+.event-h3 {
+  color: cornflowerblue;
+}
+.events-h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
