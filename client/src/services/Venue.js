@@ -26,6 +26,8 @@ export const GetCategories = async () => {
     throw error
   }
 }
+
+
 export const GetAllVenue = async (vendor_id) => {
   try {
     const res = await Client.get(`/categories/venues/${vendor_id}`)
@@ -39,6 +41,17 @@ export const GetAllVenue = async (vendor_id) => {
 export const GetVendorVenueDetails = async (venue_id) => {
   try {
     const res = await Client.get(`/venues/${venue_id}`)
+    console.log("result", res.data)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
+
+export const DeleteVenue = async (venue_id) => {
+  try {
+    const res = await Client.delete(`categories/venues/${venue_id}`)
     console.log("result", res.data)
     return res.data
   } catch (error) {
