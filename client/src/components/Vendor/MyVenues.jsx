@@ -30,7 +30,7 @@ const MyVenue = ({ user }) => {
         {venues.length !== 0 ? (
           venues.map((venue) => (
             <VenueCard
-              path={`/categories/${venue.categories[0]}/venues/${venue._id}`}
+              path={`/venues/${venue._id}`}
               key={venue._id}
               venue={venue}
               onDelete={removeVenue}
