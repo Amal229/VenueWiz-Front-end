@@ -20,23 +20,28 @@ const BookedEvents = ({ user }) => {
 
   return (
     <div>
-      <h1>My Events</h1>
-      {events.length !== 0 ? (
-        events.map((event) => (
-          <div key={event._id}>
-            <h3>{event.venueId.name}</h3>
-            <p>{formattedDate(event.bookingDate)}</p>
-            <p>{event.guestNumbers} people</p>
-            <p>{event.package}</p>
-            <p>{event.userId.phoneNumber}</p>
-            <p>{event.notes !== '' ? event.notes : '-'}</p>
-            <Link to={`/eventdetails/${event._id}`}>view Details</Link>
-            <Link to={`/invitation/${event._id}`}>Invite</Link>
-          </div>
-        ))
-      ) : (
-        <div>Start Booking for your events</div>
-      )}
+
+      <h1 className="events-h1">My Events</h1>
+      {/* <div className="event-details"> */}
+      <div className="event-container">
+        {events.length !== 0 ? (
+          events.map((event) => (
+            <div key={event._id} className="info-wrapper">
+              <h3 className="event-h3">{event.venueId.name}</h3>
+              <p>{formattedDate(event.bookingDate)}</p>
+              <p>{event.guestNumbers} people</p>
+              <p>{event.package}</p>
+              <p>{event.userId.phoneNumber}</p>
+              <p>{event.notes !== '' ? event.notes : '-'}</p>
+              <Link to={`/eventdetails/${event._id}`}>view Details</Link>
+            </div>
+          ))
+        ) : (
+          <div>Start Booking for your events</div>
+        )}
+        {/* </div> */}
+      </div>
+
     </div>
   )
 }
