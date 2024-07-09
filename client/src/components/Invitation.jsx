@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom"
 import moment from "moment"
 import { GetEventDetails } from "../services/Event"
 import { useRive } from "rive-react"
-
 import RiveComponent from "@rive-app/react-canvas"
 
 const Invitation = ({ invitationLink, user }) => {
@@ -36,8 +35,10 @@ const Invitation = ({ invitationLink, user }) => {
 
   const handleSpeech = (text) => {
     let utterance = new SpeechSynthesisUtterance(text)
+
     // utterance.voice =
     //   voices.find((voice) => voice.lang === "en-US") || voices[0]
+
     utterance.lang = "en-US"
 
     if (paused) {
