@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import moment from 'moment'
 import { GetEventDetails } from '../../services/Event'
 import { useParams } from 'react-router-dom'
+import '../../App.css'
 
 const EventDetials = () => {
   const { eventId } = useParams()
@@ -21,14 +22,17 @@ const EventDetials = () => {
   if (!event) return <div>no event found!</div>
 
   return (
-    <div>
+    <div className="venue">
       <h1>Event Details</h1>
-      <h3>{event.venueId.name}</h3>
-      <p>Date:{formattedDate(event.bookingDate)}</p>
-      <p>Guests:{event.guestNumbers}</p>
-      <p>package:{event.package}</p>
-      <p>contact: {event.userId.phoneNumber}</p>
-      <p>Notes:{event.notes}</p>
+      <div className="venue-card-detail">
+        <div className="venue-info-wrapper-detail">
+          <h2>{event.name}</h2>
+          <h3>Date: {formattedDate(event.bookingDate)}</h3>
+          <h3>Guests: {event.guestNumbers}</h3>
+          <h3>Package: {event.package}</h3>
+          <h3>Notes: {event.notes}</h3>
+        </div>
+      </div>
     </div>
   )
 }
