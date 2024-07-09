@@ -2,12 +2,20 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import moment from 'moment'
 import { GetEventDetails } from '../services/Event'
+import RiveComponent from '@rive-app/react-canvas'
+import { useRive } from '@rive-app/react-canvas'
+import Rive from '@rive-app/react-canvas'
 
 const Invitation = ({ invitationLink, user }) => {
   const { event_id } = useParams()
   const [event, setEvent] = useState(null)
   const [paused, setPaused] = useState(true)
   let voices
+  const { Rive, stateMachine } = useRive({
+    src: '../../images/login_screen_character.riv',
+    resourceName: 'login_screen_character',
+    stateMachines: 'State Machine 1'
+  })
 
   const handleShare = async () => {
     try {
@@ -31,7 +39,7 @@ const Invitation = ({ invitationLink, user }) => {
     voices = speechSynthesis.getVoices()
     console.log(voices)
     // utterance.lang = 'en-US'
-    
+
     setPaused(!paused)
     if (paused) {
       console.log('plays')
@@ -59,6 +67,8 @@ const Invitation = ({ invitationLink, user }) => {
   return (
     <div className="invitation-container">
       <img src="" alt="friendly bear" />
+
+      <Rive />
 
       <h2>You're Invited to {user?.name}'s Event!</h2>
       {event ? (

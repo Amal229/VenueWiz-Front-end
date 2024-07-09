@@ -3,6 +3,8 @@ import Client from '../../services/api'
 import { useParams } from 'react-router-dom'
 import { BASE_URL } from '../../services/api'
 import { Link } from 'react-router-dom'
+
+
 const VenueDetails = () => {
   const [venue, setVenue] = useState(null)
   const { venue_id } = useParams()

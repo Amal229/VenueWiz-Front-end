@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useReducer } from 'react'
 import axios from 'axios'
 import { useParams, Link } from 'react-router-dom'
 import { BASE_URL } from '../../services/api'
 
-const VenueDetails = () => {
+const VenueDetails = ({ user }) => {
   const [venue, setVenue] = useState(null)
   const { category_id, venue_id } = useParams()
 
@@ -54,6 +54,7 @@ const VenueDetails = () => {
               </h3>
             )}
             <Link to={`/categories/${category_id}/venues/${venue_id}/newEvent`}>
+              {}
               <button>Book Venue</button>
             </Link>
           </div>

@@ -350,3 +350,8 @@ h1 {
 
   min-height: 80vh;
 }
+
+canvas{
+  width: 800px;
+  height: auto;
+}
