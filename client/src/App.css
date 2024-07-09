@@ -534,3 +534,7 @@ button:disabled {
   border-radius: 20px;
   margin-top: 50px;
 }
+canvas {
+  width: 800px;
+  height: auto;
+}
