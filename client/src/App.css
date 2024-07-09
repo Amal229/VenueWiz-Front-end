@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
 html,
 body,
 #root,
@@ -9,11 +9,11 @@ body,
 body {
   min-width: 100vw;
   margin: 0 auto;
-  background-image: url('../images/VenueWiz Website.png');
+  background-image: url("../images/VenueWiz Website.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;
 }
@@ -32,7 +32,7 @@ main {
 .Categories h1 {
   margin-bottom: 40px;
   font-size: 3em;
-  font-family: 'Archivo Black', sans-serif;
+  font-family: "Archivo Black", sans-serif;
   font-weight: 400;
 }
 
@@ -70,7 +70,7 @@ main {
   padding: 10px;
   font-size: 1.2em;
   color: #000000;
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
   font-weight: bold;
 }
 
@@ -83,7 +83,7 @@ header {
 }
 
 .title {
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
   font-optical-sizing: auto;
   font-weight: bold;
   font-style: normal;
@@ -97,7 +97,7 @@ header {
 .nav-links a {
   text-decoration: none;
   font-optical-sizing: auto;
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
   font-weight: bold;
   font-size: 16px;
   color: black;
@@ -146,7 +146,7 @@ header {
 .right-title h1 {
   margin: 0;
   font-size: 4em;
-  font-family: 'Archivo Black', sans-serif;
+  font-family: "Archivo Black", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -156,7 +156,7 @@ header {
   font-size: 1.2em;
   font-weight: normal;
   color: #000000;
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
   font-weight: bold;
 }
 
@@ -180,7 +180,7 @@ header {
 .left-about h1 {
   margin: 0 0 40px 0;
   font-size: 4em;
-  font-family: 'Archivo Black', sans-serif;
+  font-family: "Archivo Black", sans-serif;
   font-weight: 400;
 }
 
@@ -189,7 +189,7 @@ header {
   font-size: 1.2em;
 
   color: #000000;
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
   font-weight: bold;
   width: 75%;
   line-height: 30px;
@@ -204,7 +204,7 @@ header {
 }
 
 h1 {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: "Archivo Black", sans-serif;
   font-size: 2.5em;
   margin-bottom: 20px;
 }
@@ -241,7 +241,7 @@ h1 {
 .venue-info-wrapper h2 {
   margin: 0;
   font-size: 1.5em;
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
   font-weight: bold;
   color: black;
 }
@@ -258,7 +258,7 @@ h1 {
   border-radius: 10px;
 }
 .venue h1 {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: "Archivo Black", sans-serif;
   font-size: 2.5em;
   margin-bottom: 20px;
   text-align: center;
@@ -302,13 +302,13 @@ h1 {
 .venue-info-wrapper-detail h2 {
   margin-bottom: 10px;
   font-size: 1.5em;
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
   font-weight: bold;
 }
 
 .venue-info-wrapper-detail h3 {
   font-size: 1em;
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
   font-weight: bold;
   margin-bottom: 5px;
 }
@@ -338,7 +338,7 @@ h1 {
   border-radius: 5px;
   margin-top: 10px;
   font-size: 1em;
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
   font-weight: bold;
 }
 
@@ -417,7 +417,7 @@ button:disabled {
   align-items: flex-start;
   margin-left: 50px;
   height: 100vh;
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
   font-optical-sizing: auto;
   font-weight: bold;
   font-style: normal;
@@ -442,7 +442,7 @@ button:disabled {
   border-radius: 50px;
   margin-top: 5px;
   color: #5271ff;
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
   font-style: normal;
   font-size: large;
   font-weight: bold;
@@ -457,7 +457,7 @@ button:disabled {
   border-radius: 50px;
   cursor: pointer;
   font-size: 16px;
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
   font-style: normal;
   font-size: large;
 }
@@ -482,7 +482,7 @@ button:disabled {
 
 .Forms input::placeholder {
   color: #5271ff;
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
   font-weight: bold;
   opacity: 0.6;
 }
@@ -492,7 +492,7 @@ button:disabled {
 .Forms select option {
   background-color: #fff;
   color: #000;
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
   font-style: normal;
   font-size: large;
   font-weight: bold;
@@ -509,16 +509,4 @@ button:disabled {
   border-radius: 10px;
   text-decoration: none;
   background-color: #fff;
-}
-.info-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: 350px;
-  width: 50%;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
-  border-radius: 20px;
-  margin-top: 50px;
 }
