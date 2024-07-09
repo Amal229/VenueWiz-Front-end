@@ -6,7 +6,6 @@ import Client from '../../services/api'
 import '../../App.css'
 
 const AddingVenuesForm = ({ user }) => {
-  // const { vendor_id } = useParams()
 
   const [categories, setCategories] = useState([])
 

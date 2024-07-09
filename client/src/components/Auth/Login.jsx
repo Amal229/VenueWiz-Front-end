@@ -20,11 +20,12 @@ const SignIn = ({ setUser }) => {
   }
 
   return (
-    <div className="signin col">
-      <div className="card-overlay centered">
-        <form className="col" onSubmit={handleSubmit}>
+    <div className="Forms">
+      <div className="login-form">
+        <h1>Login</h1>
+        <form className="Forms-add" onSubmit={handleSubmit}>
           <div className="input-wrapper">
-            <label className="email">Email</label>
+            <label htmlFor="email">Email</label>
             <input
               onChange={handleChange}
               name="email"
@@ -35,7 +36,7 @@ const SignIn = ({ setUser }) => {
             />
           </div>
           <div className="input-wrapper">
-            <label className="password">Password</label>
+            <label htmlFor="password">Password</label>
             <input
               onChange={handleChange}
               type="password"
