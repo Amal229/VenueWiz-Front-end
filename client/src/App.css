@@ -9,7 +9,7 @@ body,
 body {
   min-width: 100vw;
   margin: 0 auto;
-  background-image: url('../images/VenueWiz\ Website.png');
+  background-image: url('../images/VenueWiz Website.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -345,7 +345,7 @@ h1 {
 .venue-info-wrapper-detail button:hover {
   background-color: #3252e0;
 }
-.col {
+/*.col {
   margin: 30px;
 }
 
@@ -393,7 +393,7 @@ h1 {
   color: #000;
 }
 
-button {
+/*button {
   background-color: #5271ff;
   border: none;
   color: #fff;
@@ -408,7 +408,7 @@ button {
 
 button:disabled {
   background-color: #aaa;
-}
+}*/
 
 .invitation-container {
   display: flex;
