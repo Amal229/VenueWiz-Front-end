@@ -36,15 +36,8 @@ const Invitation = ({ invitationLink, user }) => {
 
   const handleSpeech = (text) => {
     let utterance = new SpeechSynthesisUtterance(text)
-
-    voices = speechSynthesis.getVoices()
-    console.log(voices)
-    // utterance.lang = 'en-US'
-
-    setPaused(!paused)
-
-    utterance.voice =
-      voices.find((voice) => voice.lang === "en-US") || voices[0]
+    // utterance.voice =
+    //   voices.find((voice) => voice.lang === "en-US") || voices[0]
     utterance.lang = "en-US"
 
     if (paused) {
@@ -87,7 +80,10 @@ const Invitation = ({ invitationLink, user }) => {
         src="/images/speaking_bear.riv"
         className="base-canvas-size"
       />
-
+      <RiveComponent
+        src="/images/speaking_bear.riv"
+        style={{ width: "auto", height: "400px", verticalAlign: "top" }}
+      />
       <h2>You're Invited to {user?.name}'s Event!</h2>
       {event ? (
         <>
