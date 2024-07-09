@@ -2,11 +2,19 @@ import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import moment from "moment"
 import { GetEventDetails } from "../services/Event"
+import { useRive } from "rive-react"
+
+import RiveComponent from "@rive-app/react-canvas"
 
 const Invitation = ({ invitationLink, user }) => {
   const { event_id } = useParams()
   const [event, setEvent] = useState(null)
   const [paused, setPaused] = useState(true)
+
+  const { Rive, stateMachine } = useRive({
+    resourceName: "login_screen_character",
+  })
+
   const [voices, setVoices] = useState([])
 
   const handleShare = async () => {
@@ -28,6 +36,13 @@ const Invitation = ({ invitationLink, user }) => {
 
   const handleSpeech = (text) => {
     let utterance = new SpeechSynthesisUtterance(text)
+
+    voices = speechSynthesis.getVoices()
+    console.log(voices)
+    // utterance.lang = 'en-US'
+
+    setPaused(!paused)
+
     utterance.voice =
       voices.find((voice) => voice.lang === "en-US") || voices[0]
     utterance.lang = "en-US"
@@ -67,10 +82,10 @@ const Invitation = ({ invitationLink, user }) => {
 
   return (
     <div className="invitation-container">
-      <img
-        src="path-to-your-character-image.png"
-        alt="Friendly bear"
-        className={`character ${paused ? "" : "speaking"}`}
+      <img src="" alt="friendly bear" />
+      <RiveComponent
+        src="/images/speaking_bear.riv"
+        className="base-canvas-size"
       />
 
       <h2>You're Invited to {user?.name}'s Event!</h2>
