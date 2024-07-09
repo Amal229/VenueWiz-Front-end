@@ -50,7 +50,7 @@ const VenueDetails = ({ user }) => {
             </ul>
             {venue.website && (
               <h3>
-                Website: <a href={venue.website}>{venue.website}</a>
+                Website: <a href={venue.website}>{venue.name}</a>
               </h3>
             )}
             <Link to={`/categories/${category_id}/venues/${venue_id}/newEvent`}>
