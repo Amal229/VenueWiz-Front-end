@@ -20,6 +20,7 @@ const BookedEvents = ({ user }) => {
 
   return (
     <div>
+
       <h1 className="events-h1">My Events</h1>
       {/* <div className="event-details"> */}
       <div className="event-container">
@@ -40,6 +41,7 @@ const BookedEvents = ({ user }) => {
         )}
         {/* </div> */}
       </div>
+
     </div>
   )
 }

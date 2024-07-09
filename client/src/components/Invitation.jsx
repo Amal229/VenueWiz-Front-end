@@ -3,22 +3,31 @@ import { useParams } from 'react-router-dom'
 import moment from 'moment'
 import { GetEventDetails } from '../services/Event'
 
+import { useRive } from 'rive-react'
+
+import RiveComponent from '@rive-app/react-canvas'
+
 const Invitation = ({ invitationLink, user }) => {
   const { event_id } = useParams()
   const [event, setEvent] = useState(null)
   const [paused, setPaused] = useState(true)
-  let voices
+
+  const { Rive, stateMachine } = useRive({
+    resourceName: 'login_screen_character'
+  })
+
+  const [voices, setVoices] = useState([])
 
   const handleShare = async () => {
     try {
       if (navigator.share) {
         await navigator.share({
           title: 'Invitation',
-          text: 'you are invited to my event',
+          text: 'You are invited to my event',
           url: invitationLink
         })
       } else {
-        const shareURL = `${invitationMessage} ${invitationLink}`
+        const shareURL = `You are invited to my event: ${invitationLink}`
         console.log('Share URL:', shareURL)
       }
     } catch (error) {
@@ -28,19 +37,20 @@ const Invitation = ({ invitationLink, user }) => {
 
   const handleSpeech = (text) => {
     let utterance = new SpeechSynthesisUtterance(text)
-    voices = speechSynthesis.getVoices()
-    console.log(voices)
-    // utterance.lang = 'en-US'
-    
-    setPaused(!paused)
+
+    // utterance.voice =
+    //   voices.find((voice) => voice.lang === "en-US") || voices[0]
+
+    utterance.lang = 'en-US'
+
     if (paused) {
-      console.log('plays')
+      console.log('Playing')
       speechSynthesis.speak(utterance)
-      speechSynthesis.resume()
     } else {
-      console.log('paused')
+      console.log('Pausing')
       speechSynthesis.pause()
     }
+    setPaused(!paused)
   }
 
   useEffect(() => {
@@ -51,15 +61,32 @@ const Invitation = ({ invitationLink, user }) => {
       const day = dateObject.format('dddd')
 
       setEvent({ ...data, date: formattedBookingDate, day: day })
-      console.log('event details', data)
+      console.log('Event details:', data)
     }
     fetchEventDetails()
+
+    const getVoices = () => {
+      const voices = speechSynthesis.getVoices()
+      setVoices(voices)
+    }
+
+    getVoices()
+    if (speechSynthesis.onvoiceschanged !== undefined) {
+      speechSynthesis.onvoiceschanged = getVoices
+    }
   }, [event_id])
 
   return (
     <div className="invitation-container">
       <img src="" alt="friendly bear" />
-
+      <RiveComponent
+        src="/images/speaking_bear.riv"
+        className="base-canvas-size"
+      />
+      <RiveComponent
+        src="/images/speaking_bear.riv"
+        style={{ width: 'auto', height: '400px', verticalAlign: 'top' }}
+      />
       <h2>You're Invited to {user?.name}'s Event!</h2>
       {event ? (
         <>
@@ -70,15 +97,16 @@ const Invitation = ({ invitationLink, user }) => {
           </p>
           <button
             onClick={() =>
-              handleSpeech(`We're thrilled to invite you to this event on ${event.day},{' '}
-            ${event.date}. The event will be held at ${event.venueId.name}`)
+              handleSpeech(
+                `We're thrilled to invite you to this event on ${event.day}, ${event.date}. The event will be held at ${event.venueId.name}`
+              )
             }
           >
             {paused ? 'Speak' : 'Pause'}
           </button>
         </>
       ) : (
-        <p>Loading</p>
+        <p>Loading...</p>
       )}
 
       <button onClick={handleShare}>Share Invitation</button>
