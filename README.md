@@ -86,4 +86,6 @@ GROQ_API_KEY=<api key for groq>
 
 - illustrations from [storyset.com](storyset.com)
 - scrollable images in readme from [/shelf project](https://github.com/NobodysLackey/shelf/blob/main/README.md)
+- share function [navigator.share](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share)
+- DatePicker from react suite [reactsuite](https://rsuitejs.com/components/date-picker/)
 

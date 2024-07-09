@@ -18,6 +18,11 @@ body {
   font-weight: 300;
 }
 
+main {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
 .Categories {
   display: flex;
   flex-direction: column;
@@ -109,11 +114,6 @@ header {
   text-decoration: underline;
 }
 
-.main {
-  min-width: 100vw;
-  height: 100%;
-  overflow-y: scroll;
-}
 .container {
   display: flex;
   align-items: center;
