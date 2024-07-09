@@ -84,6 +84,17 @@ const VenueBookingForm = ({ user }) => {
             <h3>{venue.name}</h3>
             <form className="col" onSubmit={handleSubmit}>
               <div className="input-wrapper">
+                <label htmlFor="eventName">Event Name</label>
+                <input
+                  onChange={handleChange}
+                  name="eventName"
+                  type="text"
+                  placeholder="Enter name"
+                  value={formValues.eventName}
+                  required
+                />
+              </div>
+              <div className="input-wrapper">
                 <label htmlFor="date">Date</label>
                 <DatePicker
                   onChange={handleDateChange}
@@ -93,14 +104,6 @@ const VenueBookingForm = ({ user }) => {
                   limitStartYear={1}
                   shouldDisableDate={isDateDisabled}
                 />
-                {/* <input
-                  onChange={handleChange}
-                  name="date"
-                  type="date"
-                  placeholder="Date of Event"
-                  value={formValues.date}
-                  required
-                /> */}
               </div>
 
               <div className="input-wrapper">
