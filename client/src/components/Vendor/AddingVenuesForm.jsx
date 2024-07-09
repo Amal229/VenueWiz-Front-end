@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { GetCategories } from '../../services/Venue'
 import Client from '../../services/api'
+import '../../App.css'
 
 const AddingVenuesForm = ({ user }) => {
   // const { vendor_id } = useParams()
@@ -16,7 +17,7 @@ const AddingVenuesForm = ({ user }) => {
     website: '',
     image: '',
     packages: [],
-    price: 0,
+    price: '',
     categories: []
   })
 
@@ -53,83 +54,96 @@ const AddingVenuesForm = ({ user }) => {
 
   return (
     <div className="Forms">
-      <div>
-        <form onSubmit={handleSubmit}>
+      <div className="Forms-container">
+        <h1>Add New Venue</h1>
+        <form className="Forms-add" onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name"></label>
             <input
               onChange={handleChange}
               name="name"
               type="text"
               value={formValues.name}
+              placeholder="Venue Name"
               required
             />
           </div>
           <div>
-            <label htmlFor="location">Location</label>
+            <label htmlFor="location"></label>
             <input
               onChange={handleChange}
               name="location"
               type="text"
               value={formValues.location}
+              placeholder="Location URL"
               required
             />
           </div>
           <div>
-            <label htmlFor="description">description</label>
+            <label htmlFor="description"></label>
             <input
               onChange={handleChange}
               name="description"
               type="text"
               value={formValues.description}
+              placeholder="Venue Description"
               required
             />
           </div>
           <div>
-            <label htmlFor="website">website</label>
+            <label htmlFor="website"></label>
             <input
               onChange={handleChange}
               name="website"
               type="text"
               value={formValues.website}
+              placeholder="Website URL"
               required
             />
           </div>
           <div>
-            <label htmlFor="image">image</label>
+            <label htmlFor="image"></label>
             <input
               onChange={handleChange}
               name="image"
               type="text"
               value={formValues.image}
+              placeholder="Venue Image URL"
               required
             />
           </div>
           <div>
-            <label htmlFor="price">price</label>
+            <label htmlFor="price"></label>
             <input
               onChange={handleChange}
               name="price"
               type="number"
               value={formValues.price}
+              placeholder="Venue Price"
               required
             />
           </div>
           <div>
-            <label htmlFor="packages">packages</label>
+            <label htmlFor="packages"></label>
             <input
               onChange={handleChange}
               name="packages"
-              type="text"
               value={formValues.packages}
+              placeholder="Package1,Package2..... "
               required
             />
           </div>
           <div>
-            <label htmlFor="categories">categories</label>
-            <select onChange={handleChange} name="categories">
+            <label htmlFor="categories"> </label>
+            <select
+              onChange={handleChange}
+              name="categories"
+              placeholder="Choose Category"
+              required
+            >
+              <option value="">Select Category </option>
               {categories?.map((cate) => (
-                <option key={cate._id} value={cate._id}>
+                <option key={cate.id} value={cate.id}>
                   {cate.name}
                 </option>
               ))}
@@ -143,22 +157,14 @@ const AddingVenuesForm = ({ user }) => {
               !formValues.description ||
               !formValues.image ||
               !formValues.price ||
+              !formValues.packages ||
               !formValues.website
             }
           >
-            Add your venue
+            Add
           </button>
         </form>
       </div>
-
-      {/* <h3>Venue List</h3>
-      {venues.map((venue) => (
-        <div key={venue._id}>
-          <h4>name:{venue.name}</h4>
-          <h4>location:{venue.location}</h4>
-          <button onClick={() => handleDelete(venue._id)}>Delete</button>
-        </div>
-      ))} */}
     </div>
   )
 }
