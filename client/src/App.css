@@ -441,3 +441,8 @@ h1 {
   text-decoration: none;
   background-color: #fff;
 }
+
+canvas{
+  width: 800px;
+  height: auto;
+}
