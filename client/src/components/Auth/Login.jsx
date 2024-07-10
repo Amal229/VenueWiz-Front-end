@@ -21,7 +21,7 @@ const SignIn = ({ setUser }) => {
 
   return (
     <div className="Forms">
-      <div className="login-form">
+      <div className="Forms-container">
         <h1>Login</h1>
         <form className="Forms-add" onSubmit={handleSubmit}>
           <div className="input-wrapper">
