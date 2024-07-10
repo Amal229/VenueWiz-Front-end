@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { GetCategories } from '../../services/Venue'
 import Client from '../../services/api'
+import { GetVendorVenueDetails } from '../../services/Venue'
 import '../../App.css'
+import { Link } from 'react-router-dom'
 
 const EditVenuesForm = ({ user }) => {
+  let navigate = useNavigate()
   const { venue_id } = useParams()
   const [categories, setCategories] = useState([])
   const [editFormValues, setEditFormValues] = useState({
@@ -13,13 +16,20 @@ const EditVenuesForm = ({ user }) => {
     description: '',
     website: '',
     image: '',
-    packages: [],
+    package: [],
     price: 0,
     categories: ''
   })
 
   const handleEditChange = (e) => {
     setEditFormValues({ ...editFormValues, [e.target.name]: e.target.value })
+    console.log('form', editFormValues)
+  }
+
+  const handlePackageChange = (index, e) => {
+    const newPackages = [...editFormValues.package]
+    newPackages[index][e.target.name] = e.target.value
+    setEditFormValues({ ...editFormValues, package: newPackages })
   }
 
   const handleUpdate = async (e) => {
@@ -28,6 +38,7 @@ const EditVenuesForm = ({ user }) => {
       `/categories/venues/${venue_id}`,
       editFormValues
     )
+    navigate(`/venues/${venue_id}`)
   }
 
   useEffect(() => {
@@ -44,6 +55,16 @@ const EditVenuesForm = ({ user }) => {
 
     fetchCategories()
   }, [])
+  // added venue details
+  useEffect(() => {
+    const fetchVendorVenueDetails = async () => {
+      const response = await GetVendorVenueDetails(venue_id)
+      setEditFormValues(response.venue)
+      console.log(response.venue)
+    }
+    fetchVendorVenueDetails()
+  }, [venue_id])
+
   return (
     <div className="Forms">
       <div className="Forms-container">
@@ -117,15 +138,29 @@ const EditVenuesForm = ({ user }) => {
               />
             </div>
             <div>
-              <label htmlFor="editpackages"></label>
-              <input
-                onChange={handleEditChange}
-                name="packages"
-                type="text"
-                value={editFormValues.packages}
-                placeholder="Edit package1,package2..... "
-                required
-              />
+              <label className="label-package" htmlFor="editpackages">
+                Packages:
+              </label>
+              {editFormValues.package.map((pkg, index) => (
+                <div key={index}>
+                  <input
+                    onChange={(e) => handlePackageChange(index, e)}
+                    name="name"
+                    type="text"
+                    value={pkg.name}
+                    placeholder={`Package ${index + 1} Name`}
+                    required
+                  />
+                  <input
+                    onChange={(e) => handlePackageChange(index, e)}
+                    name="price"
+                    type="number"
+                    value={pkg.price}
+                    placeholder={`Package ${index + 1} Price`}
+                    required
+                  />
+                </div>
+              ))}
             </div>
             <div>
               <label htmlFor="editcategory"></label>
@@ -141,7 +176,6 @@ const EditVenuesForm = ({ user }) => {
                 ))}
               </select>
             </div>
-
             <button>Update Venue</button>
           </form>
         )}

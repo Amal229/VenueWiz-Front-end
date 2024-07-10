@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { GetCategories } from '../../services/Venue'
 import Client from '../../services/api'
 import '../../App.css'
 
 const AddingVenuesForm = ({ user }) => {
-
+  let navigate = useNavigate()
   const [categories, setCategories] = useState([])
 
   const [formValues, setFormValues] = useState({
@@ -26,7 +26,7 @@ const AddingVenuesForm = ({ user }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
+    navigate('/venues')
     const data = {
       ...formValues,
       vendor_ref: user.id

@@ -1,11 +1,14 @@
 // navbar
 import { NavLink, Link } from 'react-router-dom'
+import '../App.css'
 
 // { user, handleLogOut }
 const Nav = ({ user, handleLogOut }) => {
   return (
     <header>
-      <h3 className="title"> VenueWiz</h3>
+      <h3 className="title">
+        <img src="../images/title.png" className="title-img" />
+      </h3>
       <NavLink className="">
         {/* <h3 className="title"> VenueWiz</h3> */}
       </NavLink>

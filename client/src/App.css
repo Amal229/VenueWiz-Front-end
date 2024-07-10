@@ -450,13 +450,14 @@ button:disabled {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* height: 140vh; */
   font-family: 'Arimo', sans-serif;
   font-optical-sizing: auto;
   font-weight: bold;
   font-style: normal;
-  font-size: 13px;
+  font-size: 10px;
   color: #5271ff;
+  margin: 40px;
 }
 
 .Forms h2 {
@@ -481,6 +482,10 @@ button:disabled {
   font-size: small;
   font-weight: bold;
   background-color: #f0f1ff;
+}
+
+.label-package {
+  font-size: 18px;
 }
 
 .Forms button {
