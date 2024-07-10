@@ -727,16 +727,24 @@ p {
 }
 
 .invitation-container {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
   padding-bottom: 20px;
+  height: 100vh; */
+  /* display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; */
 }
+
 
 .invitation-container h2{
   font-family: "DM Serif Display", serif;
   font-optical-sizing: auto;
   font-weight: 400;
+  text-align: center;
 }
 
 .invitation-msg {
@@ -749,6 +757,11 @@ p {
 
 .bear {
   width: auto;
-  height: 400px;
-  margin-top: -90px;
+  height: 430px;
+  /* margin-top: -90px; */
+}
+
+.voice-btn, .share-btn{
+  display: block;
+  margin: auto;
 }

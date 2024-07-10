@@ -66,6 +66,7 @@ const Invitation = ({ invitationLink, user }) => {
     <div className="invitation-container">
       <RiveComponent src="/images/speaking_bear.riv" className="bear" />
       <button
+        className='voice-btn'
         onClick={() =>
           handleSpeech(
             `We're thrilled to invite you to ${event.name} on ${event.day}, ${event.date}. The event will be held at ${event.venueId.name}`
@@ -89,7 +90,7 @@ const Invitation = ({ invitationLink, user }) => {
         <p>Loading...</p>
       )}
 
-      <button onClick={handleShare}>Share Invitation</button>
+      <button className='share-btn' onClick={handleShare}>Share Invitation</button>
     </div>
   )
 }
