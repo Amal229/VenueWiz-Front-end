@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useRive } from 'rive-react'
-import RiveComponent from '@rive-app/react-canvas'
 import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faVolumeUp } from '@fortawesome/free-solid-svg-icons'
@@ -39,7 +38,6 @@ const Invitation = ({ invitationLink }) => {
   const handleSpeech = (text) => {
     let utterance = new SpeechSynthesisUtterance(text)
 
-    // utterance.lang = 'en-US'
 
     setPaused(!paused)
     if (paused) {
@@ -48,7 +46,6 @@ const Invitation = ({ invitationLink }) => {
       speechSynthesis.resume()
     } else {
       rive && rive.pause()
-      console.log('paused')
       speechSynthesis.pause()
     }
   }
@@ -69,7 +66,8 @@ const Invitation = ({ invitationLink }) => {
     <div className="invitation-container">
       <RiveComponent
         className="bear"
-        onMouseEnter={() =>rive && rive.play('success')}
+        onClick={() =>rive && rive.play('success')}
+        onMouseEnter={() =>rive && rive.play('idle')}
         onMouseLeave={() =>rive && rive.pause('success')}
       />
       <button
@@ -91,6 +89,7 @@ const Invitation = ({ invitationLink }) => {
         <>
           <h2>You're Invited to {event.name} Event!</h2>
           <p className="invitation-msg">
+          {`We're thrilled to invite you to ${event.name} on ${event.day}, ${event.date}. The event will be held at ${event.venueId.name}`}
             <br></br>
             Date: {event.day}, {event.date} <br></br>
             Venue: {event.venueId.name} <br></br>

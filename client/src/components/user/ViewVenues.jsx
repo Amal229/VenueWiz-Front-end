@@ -16,7 +16,6 @@ const ViewVenues = () => {
           `${BASE_URL}/categories/${category_id}`
         )
         setVenues(response.data)
-        console.log(response.data)
       } catch (error) {
         console.log('Error Connecting', error)
       }

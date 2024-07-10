@@ -8,7 +8,6 @@ const VenueDetails = ({ user }) => {
   const { category_id, venue_id } = useParams()
 
   useEffect(() => {
-    console.log('user', user);
     const getVenue = async () => {
       try {
         const response = await axios.get(

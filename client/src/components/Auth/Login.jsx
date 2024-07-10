@@ -2,6 +2,9 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { SignInUser } from '../../services/Auth'
 import { Link } from 'react-router-dom'
+
+
+
 const SignIn = ({ setUser }) => {
   let navigate = useNavigate()
   const [formValues, setFormValues] = useState({ email: '', password: '' })
@@ -51,7 +54,7 @@ const SignIn = ({ setUser }) => {
         </form>
         <p>
           {' '}
-          You dont have an account? <Link to="/register">Click Register</Link>.
+          Don't have an account? <Link to="/register">Register</Link>.
         </p>
       </div>
     </div>
