@@ -28,12 +28,12 @@ const VenueCard = ({ path, venue, onDelete }) => {
   return (
     <>
       <div className="venue-card-mine">
-        <Link to={path} key={venue._id}>
+        <Link to={path} key={venue._id} className="link-venues">
           <div className="venue-info-wrapper">
             <h2>{venue.name}</h2>{' '}
           </div>
           <div className="venue-img-wrapper">
-            <img src={venue.image} alt={venue.name} />{' '}
+            <img className="venue-img" src={venue.image} alt={venue.name} />{' '}
           </div>
         </Link>
         <button
