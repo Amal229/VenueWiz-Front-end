@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { GetCategories } from '../../services/Venue'
 import Client from '../../services/api'
+import { GetVendorVenueDetails } from '../../services/Venue'
 import '../../App.css'
+import { Link } from 'react-router-dom'
 
 const EditVenuesForm = ({ user }) => {
   const { venue_id } = useParams()
@@ -44,6 +46,15 @@ const EditVenuesForm = ({ user }) => {
 
     fetchCategories()
   }, [])
+  // added venue details
+  useEffect(() => {
+    const fetchVendorVenueDetails = async () => {
+      const response = await GetVendorVenueDetails(venue_id)
+      setEditFormValues(response.venue)
+    }
+    fetchVendorVenueDetails()
+  }, [venue_id])
+
   return (
     <div className="Forms">
       <div className="Forms-container">
@@ -141,8 +152,9 @@ const EditVenuesForm = ({ user }) => {
                 ))}
               </select>
             </div>
-
+            {/* <Link to={`/venues/${venue_id}`}> */}
             <button>Update Venue</button>
+            {/* </Link> */}
           </form>
         )}
       </div>

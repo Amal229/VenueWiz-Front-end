@@ -770,3 +770,7 @@ p {
   display: block;
   margin: auto;
 }
+
+.title-img {
+  width: 200px;
+}
