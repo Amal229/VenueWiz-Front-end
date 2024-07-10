@@ -812,3 +812,7 @@ p {
 .container-center-event {
   text-align: center;
 }
+
+.title-img {
+  width: 200px;
+}
