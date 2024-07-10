@@ -227,7 +227,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   width: 250px;
-  /*height: 250px;*/
+  height: 250px;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -538,7 +538,7 @@ canvas {
   font-family: 'Arimo', sans-serif;
   font-style: normal;
   font-size: large;
-  margin-top: 250px;
+  margin-top: 50px;
 }
 
 .Link-new-venue {
@@ -656,7 +656,6 @@ p {
   flex-direction: column;
   justify-content: space-around;
   height: 80%;
-
 }
 /* 
 
@@ -687,7 +686,6 @@ p {
   padding: 2%;
 } */
 
-
 .booking-form .input-field input,
 .booking-form .input-field select,
 .booking-form .input-field .react-datepicker-wrapper {
@@ -706,7 +704,7 @@ p {
 }
 
 .booking-form .input-field select {
-  appearance: none; 
+  appearance: none;
 }
 
 .booking-form button {
@@ -729,5 +727,5 @@ p {
 .booking-form input::placeholder,
 .booking-form textarea::placeholder,
 .booking-form select::placeholder {
-  color: #AAB9FF;
+  color: #aab9ff;
 }
