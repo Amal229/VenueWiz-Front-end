@@ -425,13 +425,14 @@ button:disabled {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* height: 140vh; */
   font-family: 'Arimo', sans-serif;
   font-optical-sizing: auto;
   font-weight: bold;
   font-style: normal;
-  font-size: 13px;
+  font-size: 10px;
   color: #5271ff;
+  margin: 40px;
 }
 
 .Forms h2 {
@@ -725,4 +726,8 @@ p {
 .booking-form textarea::placeholder,
 .booking-form select::placeholder {
   color: #aab9ff;
+}
+
+.title-img {
+  width: 200px;
 }
