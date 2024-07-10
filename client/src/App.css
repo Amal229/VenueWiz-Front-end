@@ -442,7 +442,13 @@ h1 {
   background-color: #fff;
 }
 
-canvas{
+canvas {
   width: 800px;
   height: auto;
 }
+.addVenue {
+  border-radius: 50%;
+  background-color: #5271ff;
+}
+
+/** myvenues **/
