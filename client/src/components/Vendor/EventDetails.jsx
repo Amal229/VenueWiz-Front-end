@@ -22,18 +22,20 @@ const EventDetials = () => {
   if (!event) return <div>no event found!</div>
 
   return (
-    <div className="event-container">
+    <div className="container-center-event">
       <h1 className="events-h1">Event Details</h1>
-      <div className="event-img-wrapper-detail">
-        <img src="../../images/ celebrating (1).png" alt={event.name} />
-      </div>
-      <div className="venue-card-detail">
-        <div className="info-wrapper">
-          <h2 className="event=h3">{event.name}</h2>
-          <h3>Date: {formattedDate(event.bookingDate)}</h3>
-          <h3>Guests: {event.guestNumbers}</h3>
-          <h3>Package: {event.package}</h3>
-          <h3>Notes: {event.notes}</h3>
+      <div className="event-container">
+        <div className="event-img-wrapper-detail">
+          <img src="../../images/ celebrating (1).png" alt={event.name} />
+        </div>
+        <div className="event-card-detail">
+          <div className="info-wrapper">
+            <h2 className="event=h3">{event.name}</h2>
+            <h3>Date: {formattedDate(event.bookingDate)}</h3>
+            <h3>Guests: {event.guestNumbers}</h3>
+            <h3>Package: {event.package}</h3>
+            <h3>Notes: {event.notes}</h3>
+          </div>
         </div>
       </div>
     </div>
