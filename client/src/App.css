@@ -761,7 +761,7 @@ p {
 .bear {
   width: 430px;
   height: 430px;
-  margin: auto
+  margin: auto;
 }
 
 .voice-btn,
@@ -773,6 +773,8 @@ p {
 .event-container {
   text-align: center;
   justify-content: center;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .event-img-wrapper-detail img {
@@ -780,4 +782,15 @@ p {
   height: 500px; /* Maintains the aspect ratio */
   border-radius: 30px;
   transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+.event-card-detail {
+  background-color: #fcfcfc00;
+
+  padding: 20px;
+  border-radius: 10px;
+  /* width: 80%; */
+  max-width: 1200px;
+}
+.container-center-event {
+  text-align: center;
 }
