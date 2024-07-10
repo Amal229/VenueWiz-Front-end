@@ -42,23 +42,26 @@ const VenueCard = ({ path, venue, onDelete }) => {
         >
           Delete Venue
         </button>
-      </div>
-      {venueToDelete && (
-        <div className="delete-confirmation">
-          <p>Delete Venue?</p>
-          <div className="deleteCconfirmation-buttons">
-            <button
-              className="confirm-button"
-              onClick={handleConfirmDeleteVenue}
-            >
-              Delete
-            </button>
-            <button className="cancel-button" onClick={handleCancelDeleteVenue}>
-              Cancel
-            </button>
+        {venueToDelete && (
+          <div className="delete-confirmation">
+            <p>Delete Venue?</p>
+            <div className="deleteCconfirmation-buttons">
+              <button
+                className="confirm-button"
+                onClick={handleConfirmDeleteVenue}
+              >
+                Delete
+              </button>
+              <button
+                className="cancel-button"
+                onClick={handleCancelDeleteVenue}
+              >
+                Cancel
+              </button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </>
   )
 }
