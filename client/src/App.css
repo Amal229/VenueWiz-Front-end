@@ -23,6 +23,19 @@ main {
   min-height: 100vh;
 }
 
+button {
+  background-color: #5271ff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 25px;
+}
+
+button:hover {
+  background-color: #007bff;
+  cursor: pointer;
+}
+
 .Categories {
   display: flex;
   flex-direction: column;
@@ -607,6 +620,12 @@ canvas {
   margin-bottom: 10px;
 }
 
+.event-btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 p {
   margin: 5px 0;
   color: black;
@@ -709,4 +728,47 @@ p {
 .addVenue {
   border-radius: 50%;
   background-color: #5271ff;
+  color: #aab9ff;
 }
+
+.invitation-container {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+  height: 100vh; */
+  /* display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; */
+}
+
+
+
+.invitation-container h2{
+  font-family: "DM Serif Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  text-align: center;
+}
+
+.invitation-msg {
+  font-family: "DM Serif Display", serif;
+  font-weight: 700;
+  text-align: center;
+  padding-bottom: 20px;
+  
+}
+
+.bear {
+  width: auto;
+  height: 430px;
+  /* margin-top: -90px; */
+}
+
+.voice-btn, .share-btn{
+  display: block;
+  margin: auto;
+}
+
