@@ -20,7 +20,7 @@ const BookedVenues = ({ user }) => {
 
   return (
     <div>
-      <h1>My Events</h1>
+      <h1 className="events-h1">My Events</h1>
       <div className="event-container">
         {events.length !== 0 ? (
           events.map((event) => (
