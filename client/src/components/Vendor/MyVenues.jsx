@@ -15,7 +15,6 @@ const MyVenue = ({ user }) => {
     if (user) {
       const getVendorVenues = async () => {
         const data = await GetAllVenue(user.id)
-        console.log(data)
         setVenues(data)
       }
       getVendorVenues()

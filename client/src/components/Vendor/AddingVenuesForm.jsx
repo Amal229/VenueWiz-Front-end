@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-import axios from 'axios'
-import { useParams, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 import { GetCategories } from '../../services/Venue'
 import Client from '../../services/api'
 import '../../App.css'
@@ -33,16 +32,13 @@ const AddingVenuesForm = ({ user }) => {
     }
 
     const response = await Client.post('/categories/venues', data)
-    console.log(data)
   }
   //for categories selection
   useEffect(() => {
-    console.log(user)
     const fetchCategories = async () => {
       try {
         const response = await GetCategories()
         setCategories(response)
-        console.log('categories', response)
       } catch (error) {
         console.log('Error Connecting', error)
       }
