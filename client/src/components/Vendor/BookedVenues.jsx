@@ -21,16 +21,18 @@ const BookedVenues = ({ user }) => {
   return (
     <div>
       <h1 className="events-h1">My Events</h1>
-      <div className="event-container">
+      <div className="event-cards-container">
         {events.length !== 0 ? (
           events.map((event) => (
-            <div key={event._id} className="info-wrapper">
-              <h3 className="event-h3">{event.venueId.name}</h3>
-              <p>{formattedDate(event.bookingDate)}</p>
-              <p>{event.guestNumbers} people</p>
-              <p>{event.package}</p>
-              <p>{event.userId.phoneNumber}</p>
-              <p>{event.notes !== '' ? event.notes : '-'}</p>
+            <div key={event._id} className="event-card-divs">
+              <h3 className="event-title">{event.venueId.name}</h3>
+              <p className="event-date">{formattedDate(event.bookingDate)}</p>
+              <p className="event-guests">{event.guestNumbers} people</p>
+              <p className="event-package">{event.package}</p>
+              <p className="event-contact">{event.userId.phoneNumber}</p>
+              <p className="event-notes">
+                {event.notes !== '' ? event.notes : '-'}
+              </p>
             </div>
           ))
         ) : (
