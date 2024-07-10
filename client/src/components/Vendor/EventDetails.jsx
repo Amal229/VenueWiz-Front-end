@@ -24,6 +24,9 @@ const EventDetials = () => {
   return (
     <div className="event-container">
       <h1 className="events-h1">Event Details</h1>
+      <div className="event-img-wrapper-detail">
+        <img src="../../images/ celebrating (1).png" alt={event.name} />
+      </div>
       <div className="venue-card-detail">
         <div className="info-wrapper">
           <h2 className="event=h3">{event.name}</h2>
