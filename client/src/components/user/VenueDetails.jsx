@@ -8,12 +8,12 @@ const VenueDetails = ({ user }) => {
   const { category_id, venue_id } = useParams()
 
   useEffect(() => {
+    console.log('user', user);
     const getVenue = async () => {
       try {
         const response = await axios.get(
           `${BASE_URL}/categories/${category_id}/venues/${venue_id}`
         )
-        console.log('API Response:', response.data)
         setVenue(response.data.venue)
       } catch (error) {
         console.error('Error Connecting:', error)
@@ -53,10 +53,20 @@ const VenueDetails = ({ user }) => {
                 Website: <a href={venue.website}>{venue.name}</a>
               </h3>
             )}
-            <Link to={user? `/categories/${category_id}/venues/${venue_id}/newEvent`: '/login'}>
-              {}
-              <button>Book Venue</button>
-            </Link>
+            {user ? (
+              <Link
+                to={`/categories/${category_id}/venues/${venue_id}/newEvent`}
+              >
+                {}
+                <button>Book Venue</button>
+              </Link>
+            ) : (
+              <Link to={`/login`}>
+                {}
+                <button>Book Venue</button>
+              </Link>
+            )}
+            
           </div>
         </div>
       </div>

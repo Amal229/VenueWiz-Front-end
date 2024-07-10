@@ -36,6 +36,10 @@ button:hover {
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+}
+
 .Categories {
   display: flex;
   flex-direction: column;
@@ -239,8 +243,9 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   width: 250px;
-  height: 250px;
+  /* height: 250px; */
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -252,6 +257,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   width: 300px;
   height: 300px;
   padding: 20px;
@@ -278,7 +284,10 @@ h1 {
   font-weight: bold;
   color: black;
 }
-
+.venue-img-dashboard {
+  width: 150px;
+  height: 150px;
+}
 .venue-img-wrapper {
   width: 100%;
   height: 150px;
@@ -300,7 +309,6 @@ h1 {
 .venue-card-detail {
   background-color: #fcfcfc00;
   display: flex;
-  flex-direction: column;
   margin: 20px auto;
   padding: 20px;
   border-radius: 10px;
@@ -455,7 +463,7 @@ button:disabled {
   font-optical-sizing: auto;
   font-weight: bold;
   font-style: normal;
-  font-size: 10px;
+  /* font-size: 10px; */
   color: #5271ff;
   margin: 40px;
 }
@@ -589,6 +597,17 @@ canvas {
   padding: 20px;
 }
 
+.new-venue-btn {
+  background-color: #5271ff;
+  color: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  height: 60px;
+  font-family: 'Arimo', sans-serif;
+  width: 300px;
+  font-size: 30px;
+}
+
 /**booked events**/
 
 .events-container {
@@ -613,6 +632,14 @@ canvas {
   gap: 20px;
 }
 
+.event-container-detail {
+  text-align: center;
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+}
+
 .info-wrapper {
   display: flex;
   flex-direction: column;
@@ -624,6 +651,20 @@ canvas {
   padding: 15px;
   width: 300px;
   height: 300px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.info-wrapper-event {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 35px;
+  padding: 15px;
+  width: 400px;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
 }
@@ -641,7 +682,8 @@ canvas {
 .event-btns {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
 p {
