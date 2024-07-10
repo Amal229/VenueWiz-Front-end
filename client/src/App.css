@@ -549,6 +549,7 @@ canvas {
   font-family: 'Arimo', sans-serif;
   font-style: normal;
   font-size: large;
+  margin-top: 200px;
 }
 
 .Button-delete-venue {
