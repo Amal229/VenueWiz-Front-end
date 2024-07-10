@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
-import { GetAllVenue } from "../../services/Venue"
-import VenueCard from "./VenueCard"
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { GetAllVenue } from '../../services/Venue'
+import VenueCard from './VenueCard'
+import '../../App.css'
 
 const MyVenue = ({ user }) => {
   const [venues, setVenues] = useState([])
@@ -40,6 +41,11 @@ const MyVenue = ({ user }) => {
         ) : (
           <h3>No Venues Yet</h3>
         )}
+      </div>
+      <div className="Button-delete-venue">
+        <Link to={`/venues/newvenue`}>
+          <button className="Link-new-venue"> Add New venue</button>
+        </Link>
       </div>
     </div>
   )

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import moment from 'moment'
-import DatePicker from 'rsuite/DatePicker'
+import { DatePicker } from 'rsuite'
 import 'rsuite/DatePicker/styles/index.css'
 import { GetVenueDetails } from '../../services/Venue'
 import { CreateEvent } from '../../services/Event'
@@ -12,10 +12,8 @@ const VenueBookingForm = ({ user }) => {
   const [venue, setVenue] = useState({})
   const [bookedDates, setBookedDates] = useState([])
 
-  // venueid from the params,
-  // userID from the user attributes,
-  // venodrid from the venue details
   const [formValues, setFormValues] = useState({
+    name: '',
     date: new Date(),
     guestNumbers: '',
     package_name: '',
@@ -37,6 +35,7 @@ const VenueBookingForm = ({ user }) => {
     try {
       const formattedDate = moment(date).format()
       const res = await CreateEvent({
+        name: formValues.name,
         bookingDate: formattedDate,
         guestNumbers,
         notes,
@@ -45,8 +44,8 @@ const VenueBookingForm = ({ user }) => {
         vendorId: venue.vendor_ref,
         venueId: venue._id
       })
-      console.log('created event', res)
       setFormValues({
+        name: '',
         date: new Date(),
         guestNumbers: '',
         package_name: '',
@@ -77,92 +76,87 @@ const VenueBookingForm = ({ user }) => {
   }, [venue_id])
 
   return (
-    <div className="col">
-      <div className="card-overlay centered">
-        {venue ? (
-          <div>
-            <h3>{venue.name}</h3>
-            <form className="col" onSubmit={handleSubmit}>
-              <div className="input-wrapper">
-                <label htmlFor="eventName">Event Name</label>
-                <input
-                  onChange={handleChange}
-                  name="eventName"
-                  type="text"
-                  placeholder="Enter name"
-                  value={formValues.eventName}
-                  required
-                />
-              </div>
-              <div className="input-wrapper">
-                <label htmlFor="date">Date</label>
-                <DatePicker
-                  onChange={handleDateChange}
-                  value={formValues.date}
-                  defaultValue={new Date()}
-                  limitEndYear={2}
-                  limitStartYear={1}
-                  shouldDisableDate={isDateDisabled}
-                />
-              </div>
+    <div className="booking-form-container">
+      {venue ? (
+        <div className="booking-form-container-small">
+          <h3>Book {venue.name}</h3>
+          <form className="booking-form" onSubmit={handleSubmit}>
+            <div className="input-field">
+              <input
+                onChange={handleChange}
+                name="name"
+                type="text"
+                placeholder="Event Name"
+                value={formValues.name}
+                required
+              />
+            </div>
 
-              <div className="input-wrapper">
-                <label htmlFor="guestNumbers">Guest Numbers</label>
-                <input
-                  onChange={handleChange}
-                  name="guestNumbers"
-                  type="number"
-                  min={1}
-                  placeholder="10"
-                  value={formValues.guestNumbers}
-                  required
-                />
-              </div>
+            <div className="input-field">
+              <DatePicker
+                appearance="subtle"
+                onChange={handleDateChange}
+                value={formValues.date}
+                limitEndYear={2}
+                limitStartYear={1}
+                shouldDisableDate={isDateDisabled}
+              />
+            </div>
 
-              <div className="input-wrapper">
-                {/* drop down menu */}
-                <label htmlFor="package_name">Package:</label>
+            <div className="input-field">
+              <input
+                onChange={handleChange}
+                name="guestNumbers"
+                type="number"
+                min={1}
+                placeholder="Guest Numbers"
+                value={formValues.guestNumbers}
+                required
+              />
+            </div>
 
-                <select
-                  name="package_name"
-                  id="package_name"
-                  onChange={handleChange}
-                >
-                  <option value="">Select Package</option>
-                  {venue.package?.map((pkg) => (
-                    <option key={pkg._id} value={pkg.name}>
-                      {pkg.name} {pkg.price}BD
-                    </option>
-                  ))}
-                </select>
-              </div>
+            <div className="input-field">
+              {/* drop down menu */}
 
-              <div className="input-wrapper">
-                <label htmlFor="notes">Notes</label>
-                <input
-                  onChange={handleChange}
-                  type="text"
-                  name="notes"
-                  value={formValues.notes}
-                />
-              </div>
-              <button
-                disabled={
-                  !formValues.date ||
-                  !formValues.guestNumbers ||
-                  !formValues.package_name
-                }
+              <select
+                name="package_name"
+                id="package_name"
+                onChange={handleChange}
               >
-                Book
-              </button>
-            </form>
-          </div>
-        ) : (
-          <div>
-            <p>loading</p>
-          </div>
-        )}
-      </div>
+                <option value="">Select Package</option>
+                {venue.package?.map((pkg) => (
+                  <option key={pkg._id} value={pkg.name}>
+                    {pkg.name} {pkg.price}BD
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="input-field">
+              <input
+                onChange={handleChange}
+                type="text"
+                name="notes"
+                placeholder="Notes"
+                value={formValues.notes}
+              />
+            </div>
+            <button
+              disabled={
+                !formValues.date ||
+                !formValues.guestNumbers ||
+                !formValues.package_name
+              }
+            >
+              Book
+            </button>
+          </form>
+        </div>
+      ) : (
+        <div>
+          <p>loading</p>
+        </div>
+      )}
     </div>
   )
 }

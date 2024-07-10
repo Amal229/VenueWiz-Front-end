@@ -22,11 +22,11 @@ const EventDetials = () => {
   if (!event) return <div>no event found!</div>
 
   return (
-    <div className="venue">
-      <h1>Event Details</h1>
+    <div className="event-container">
+      <h1 className="events-h1">Event Details</h1>
       <div className="venue-card-detail">
-        <div className="venue-info-wrapper-detail">
-          <h2>{event.name}</h2>
+        <div className="info-wrapper">
+          <h2 className="event=h3">{event.name}</h2>
           <h3>Date: {formattedDate(event.bookingDate)}</h3>
           <h3>Guests: {event.guestNumbers}</h3>
           <h3>Package: {event.package}</h3>

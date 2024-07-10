@@ -129,7 +129,6 @@ const AddingVenuesForm = ({ user }) => {
               name="packages"
               value={formValues.packages}
               placeholder="Package1,Package2..... "
-              required
             />
           </div>
           <div>
@@ -142,7 +141,7 @@ const AddingVenuesForm = ({ user }) => {
             >
               <option value="">Select Category </option>
               {categories?.map((cate) => (
-                <option key={cate.id} value={cate.id}>
+                <option key={cate._id} value={cate._id}>
                   {cate.name}
                 </option>
               ))}
