@@ -73,7 +73,7 @@ const App = () => {
           <Route path="/categories/:category_id" element={<ViewVenues />} />
           <Route
             path="/categories/:category_id/venues/:venue_id"
-            element={<VenueDetails />}
+            element={<VenueDetails user={user} />}
           />
           <Route
             path="/categories/:category_id/venues/:venue_id/newEvent"

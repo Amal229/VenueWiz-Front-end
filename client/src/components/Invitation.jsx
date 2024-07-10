@@ -8,7 +8,7 @@ import { faVolumeUp } from '@fortawesome/free-solid-svg-icons'
 import { faVolumeOff } from '@fortawesome/free-solid-svg-icons'
 import { GetEventDetails } from '../services/Event'
 
-const Invitation = ({ invitationLink, user }) => {
+const Invitation = ({ invitationLink }) => {
   const { event_id } = useParams()
   const [event, setEvent] = useState(null)
   const [paused, setPaused] = useState(true)
