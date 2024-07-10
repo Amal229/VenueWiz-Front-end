@@ -39,7 +39,11 @@ const VenueDetails = () => {
           <div className="venue-info-wrapper-detail">
             <h2>{venue.name}</h2>
             <h3> {venue.description}</h3>
-            <h3> {venue.location}</h3>
+            {venue.location && (
+              <h3>
+                location: <a href={venue.location}>{venue.location}</a>
+              </h3>
+            )}
             <h3>Price: ${venue.price}</h3>
             <h3>Packages:</h3>
             <ul>
