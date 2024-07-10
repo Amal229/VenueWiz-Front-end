@@ -1,6 +1,6 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
-import { DeleteVenue } from "../../services/Venue"
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { DeleteVenue } from '../../services/Venue'
 
 const VenueCard = ({ path, venue, onDelete }) => {
   const [venueToDelete, setVenueToDelete] = useState(null)
@@ -27,7 +27,7 @@ const VenueCard = ({ path, venue, onDelete }) => {
 
   return (
     <>
-      <Link to={path} key={venue._id} className="venue-card">
+      <Link to={path} key={venue._id} className="venue-card-mine">
         <div className="venue-info-wrapper">
           <h2>{venue.name}</h2>{' '}
         </div>
@@ -38,9 +38,7 @@ const VenueCard = ({ path, venue, onDelete }) => {
           className="delete-button"
           onClick={() => handleDeleteVenue(venue._id)}
         >
-
           Delete Venue
-
         </button>
       </Link>
 

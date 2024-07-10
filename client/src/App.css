@@ -248,6 +248,19 @@ h1 {
   background-color: #fff;
 }
 
+.venue-card-mine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  height: 320px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: #fff;
+}
+
 .venue-card:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -761,7 +774,7 @@ p {
 .bear {
   width: 430px;
   height: 430px;
-  margin: auto
+  margin: auto;
 }
 
 .voice-btn,
