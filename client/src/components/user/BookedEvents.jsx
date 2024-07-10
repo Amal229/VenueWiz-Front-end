@@ -19,7 +19,7 @@ const BookedEvents = ({ user }) => {
   }, [user])
 
   return (
-    <div>
+    <div className="bookedEvents">
       <h1 className="events-h1">My Events</h1>
       <div className="event-container">
         {events.length !== 0 ? (
