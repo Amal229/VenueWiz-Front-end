@@ -20,9 +20,7 @@ const BookedEvents = ({ user }) => {
 
   return (
     <div>
-
       <h1 className="events-h1">My Events</h1>
-      {/* <div className="event-details"> */}
       <div className="event-container">
         {events.length !== 0 ? (
           events.map((event) => (
@@ -39,9 +37,7 @@ const BookedEvents = ({ user }) => {
         ) : (
           <div>Start Booking for your events</div>
         )}
-        {/* </div> */}
       </div>
-
     </div>
   )
 }
