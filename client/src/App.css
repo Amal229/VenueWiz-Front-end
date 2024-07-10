@@ -227,7 +227,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   width: 250px;
-  /*height: 250px;*/
+  height: 250px;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -535,7 +535,7 @@ canvas {
   font-family: 'Arimo', sans-serif;
   font-style: normal;
   font-size: large;
-  margin-top: 250px;
+  margin-top: 50px;
 }
 
 .Link-new-venue {
@@ -727,7 +727,9 @@ p {
   color: #aab9ff;
 }
 
+
 .addVenue {
   border-radius: 50%;
   background-color: #5271ff;
 }
+

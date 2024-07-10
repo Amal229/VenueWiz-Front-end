@@ -38,15 +38,12 @@ const VenueCard = ({ path, venue, onDelete }) => {
           className="delete-button"
           onClick={() => handleDeleteVenue(venue._id)}
         >
-          x
+
+          Delete Venue
+
         </button>
       </Link>
-      <button
-        className="delete-button"
-        onClick={() => handleDeleteVenue(venue._id)}
-      >
-        Delete Venue
-      </button>
+
       {venueToDelete && (
         <div className="delete-confirmation">
           <p>Delete Venue?</p>
