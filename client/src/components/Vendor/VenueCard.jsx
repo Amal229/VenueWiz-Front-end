@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { DeleteVenue } from '../../services/Venue'
+import { useState } from "react"
+import { Link } from "react-router-dom"
+import { DeleteVenue } from "../../services/Venue"
 
 const VenueCard = ({ path, venue, onDelete }) => {
   const [venueToDelete, setVenueToDelete] = useState(null)
@@ -34,6 +34,12 @@ const VenueCard = ({ path, venue, onDelete }) => {
         <div className="venue-img-wrapper">
           <img src={venue.image} alt={venue.name} />{' '}
         </div>
+        <button
+          className="delete-button"
+          onClick={() => handleDeleteVenue(venue._id)}
+        >
+          x
+        </button>
       </Link>
       <button
         className="delete-button"

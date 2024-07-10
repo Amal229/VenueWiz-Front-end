@@ -25,7 +25,9 @@ const MyVenue = ({ user }) => {
   return (
     <div className="Venues">
       <h1>My Venues</h1>
-
+      <Link to={`/venues/newvenue`}>
+        <button className="addVenue"> Add venue</button>
+      </Link>
       <div className="venue-container">
         {venues.length !== 0 ? (
           venues.map((venue) => (

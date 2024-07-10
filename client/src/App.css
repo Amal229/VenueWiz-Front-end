@@ -726,3 +726,8 @@ p {
 .booking-form select::placeholder {
   color: #aab9ff;
 }
+
+.addVenue {
+  border-radius: 50%;
+  background-color: #5271ff;
+}
