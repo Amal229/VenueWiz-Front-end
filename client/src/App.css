@@ -23,6 +23,19 @@ main {
   min-height: 100vh;
 }
 
+button {
+  background-color: #5271ff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 25px;
+}
+
+button:hover {
+  background-color: #007bff;
+  cursor: pointer;
+}
+
 .Categories {
   display: flex;
   flex-direction: column;
@@ -227,7 +240,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   width: 250px;
-  /*height: 250px;*/
+  height: 250px;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -536,7 +549,7 @@ canvas {
   font-family: 'Arimo', sans-serif;
   font-style: normal;
   font-size: large;
-  margin-top: 250px;
+  margin-top: 50px;
 }
 
 .Link-new-venue {
@@ -550,6 +563,7 @@ canvas {
   font-family: 'Arimo', sans-serif;
   font-style: normal;
   font-size: large;
+  margin-top: 200px;
 }
 
 .Button-delete-venue {
@@ -577,16 +591,22 @@ canvas {
 
 .event-container {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: 20px;
 }
 
 .info-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border: 1px solid #ccc;
   background-color: white;
   border-radius: 35px;
   padding: 15px;
   width: 300px;
+  height: 300px;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
 }
@@ -599,6 +619,12 @@ canvas {
   font-size: 1.5em;
   color: #5271ff;
   margin-bottom: 10px;
+}
+
+.event-btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 p {
@@ -655,34 +681,6 @@ p {
   justify-content: space-around;
   height: 80%;
 }
-/* 
-
-
-.booking-form-container input,
-.booking-form-container select,
-.booking-form-container input[type=text] {
-  padding: 4%;
-  border: none;
-  border-radius: 50px;
-  color: #5271ff;
-  font-family: 'Arimo', sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  background-color: #f0f1ff;
-}
-
-.input-field {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-width: 100px;
-} */
-
-/* .input-field input,
-.input-field select {
-  min-width: 100px;
-  padding: 2%;
-} */
 
 .booking-form .input-field input,
 .booking-form .input-field select,
@@ -728,6 +726,47 @@ p {
   color: #aab9ff;
 }
 
-.title-img {
-  width: 200px;
+.addVenue {
+  border-radius: 50%;
+  background-color: #5271ff;
+  color: #aab9ff;
+}
+
+.invitation-container {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+  height: 100vh; */
+  /* display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; */
+}
+
+.invitation-container h2 {
+  font-family: 'DM Serif Display', serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  text-align: center;
+}
+
+.invitation-msg {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 700;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.bear {
+  width: auto;
+  height: 430px;
+  /* margin-top: -90px; */
+}
+
+.voice-btn,
+.share-btn {
+  display: block;
+  margin: auto;
 }

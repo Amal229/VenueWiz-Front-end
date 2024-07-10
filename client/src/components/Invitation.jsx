@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import moment from 'moment'
-import { GetEventDetails } from '../services/Event'
-
 import { useRive } from 'rive-react'
-
 import RiveComponent from '@rive-app/react-canvas'
+import moment from 'moment'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faVolumeUp } from '@fortawesome/free-solid-svg-icons'
+import { faVolumeOff } from '@fortawesome/free-solid-svg-icons';
+import { GetEventDetails } from '../services/Event'
 
 const Invitation = ({ invitationLink, user }) => {
   const { event_id } = useParams()
@@ -15,8 +16,6 @@ const Invitation = ({ invitationLink, user }) => {
   const { Rive, stateMachine } = useRive({
     resourceName: 'login_screen_character'
   })
-
-  const [voices, setVoices] = useState([])
 
   const handleShare = async () => {
     try {
@@ -38,19 +37,17 @@ const Invitation = ({ invitationLink, user }) => {
   const handleSpeech = (text) => {
     let utterance = new SpeechSynthesisUtterance(text)
 
-    // utterance.voice =
-    //   voices.find((voice) => voice.lang === "en-US") || voices[0]
+    // utterance.lang = 'en-US'
 
-    utterance.lang = 'en-US'
-
+    setPaused(!paused)
     if (paused) {
-      console.log('Playing')
+      console.log('plays')
       speechSynthesis.speak(utterance)
+      speechSynthesis.resume()
     } else {
-      console.log('Pausing')
+      console.log('paused')
       speechSynthesis.pause()
     }
-    setPaused(!paused)
   }
 
   useEffect(() => {
@@ -61,55 +58,39 @@ const Invitation = ({ invitationLink, user }) => {
       const day = dateObject.format('dddd')
 
       setEvent({ ...data, date: formattedBookingDate, day: day })
-      console.log('Event details:', data)
     }
     fetchEventDetails()
-
-    const getVoices = () => {
-      const voices = speechSynthesis.getVoices()
-      setVoices(voices)
-    }
-
-    getVoices()
-    if (speechSynthesis.onvoiceschanged !== undefined) {
-      speechSynthesis.onvoiceschanged = getVoices
-    }
   }, [event_id])
 
   return (
     <div className="invitation-container">
-      <img src="" alt="friendly bear" />
-      <RiveComponent
-        src="/images/speaking_bear.riv"
-        className="base-canvas-size"
-      />
-      <RiveComponent
-        src="/images/speaking_bear.riv"
-        style={{ width: 'auto', height: '400px', verticalAlign: 'top' }}
-      />
-      <h2>You're Invited to {user?.name}'s Event!</h2>
+      <RiveComponent src="/images/speaking_bear.riv" className="bear" />
+      <button
+        className='voice-btn'
+        onClick={() =>
+          handleSpeech(
+            `We're thrilled to invite you to ${event.name} on ${event.day}, ${event.date}. The event will be held at ${event.venueId.name}`
+          )
+        }
+      >
+        {paused ? <FontAwesomeIcon icon={faVolumeUp} /> : <FontAwesomeIcon icon={faVolumeOff} /> }
+      </button>
+      
       {event ? (
         <>
-          <p>
-            We're thrilled to invite you to this event on {event.day},{' '}
-            {event.date}. The event will be held at {event.venueId.name}{' '}
-            <a href={event.venueId.location}>Location</a>.
+          <h2>You're Invited to {event.name} Event!</h2>
+          <p className='invitation-msg'>
+            <br></br>
+            Date: {event.day}, {event.date} <br></br>
+            Venue: {event.venueId.name}{' '}<br></br>
+            Location: <a href={event.venueId.location}>Location</a>.
           </p>
-          <button
-            onClick={() =>
-              handleSpeech(
-                `We're thrilled to invite you to this event on ${event.day}, ${event.date}. The event will be held at ${event.venueId.name}`
-              )
-            }
-          >
-            {paused ? 'Speak' : 'Pause'}
-          </button>
         </>
       ) : (
         <p>Loading...</p>
       )}
 
-      <button onClick={handleShare}>Share Invitation</button>
+      <button className='share-btn' onClick={handleShare}>Share Invitation</button>
     </div>
   )
 }

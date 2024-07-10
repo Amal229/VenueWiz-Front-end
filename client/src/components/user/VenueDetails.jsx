@@ -53,7 +53,7 @@ const VenueDetails = ({ user }) => {
                 Website: <a href={venue.website}>{venue.name}</a>
               </h3>
             )}
-            <Link to={`/categories/${category_id}/venues/${venue_id}/newEvent`}>
+            <Link to={user? `/categories/${category_id}/venues/${venue_id}/newEvent`: '/login'}>
               {}
               <button>Book Venue</button>
             </Link>

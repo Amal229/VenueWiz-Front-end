@@ -25,7 +25,6 @@ const MyVenue = ({ user }) => {
   return (
     <div className="Venues">
       <h1>My Venues</h1>
-
       <div className="venue-container">
         {venues.length !== 0 ? (
           venues.map((venue) => (
