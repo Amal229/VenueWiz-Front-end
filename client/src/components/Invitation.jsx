@@ -5,7 +5,7 @@ import RiveComponent from '@rive-app/react-canvas'
 import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faVolumeUp } from '@fortawesome/free-solid-svg-icons'
-import { faVolumeOff } from '@fortawesome/free-solid-svg-icons';
+import { faVolumeOff } from '@fortawesome/free-solid-svg-icons'
 import { GetEventDetails } from '../services/Event'
 
 const Invitation = ({ invitationLink, user }) => {
@@ -13,8 +13,10 @@ const Invitation = ({ invitationLink, user }) => {
   const [event, setEvent] = useState(null)
   const [paused, setPaused] = useState(true)
 
-  const { Rive, stateMachine } = useRive({
-    resourceName: 'login_screen_character'
+  const { rive, RiveComponent } = useRive({
+    src: '/images/speaking_bear2.riv',
+    stateMachines: 'State Machine 1',
+    autoplay: false
   })
 
   const handleShare = async () => {
@@ -41,10 +43,11 @@ const Invitation = ({ invitationLink, user }) => {
 
     setPaused(!paused)
     if (paused) {
-      console.log('plays')
+      rive && rive.play()
       speechSynthesis.speak(utterance)
       speechSynthesis.resume()
     } else {
+      rive && rive.pause()
       console.log('paused')
       speechSynthesis.pause()
     }
@@ -60,29 +63,37 @@ const Invitation = ({ invitationLink, user }) => {
       setEvent({ ...data, date: formattedBookingDate, day: day })
     }
     fetchEventDetails()
-  }, [event_id])
+  }, [event_id, rive])
 
   return (
     <div className="invitation-container">
-      <RiveComponent src="/images/speaking_bear.riv" className="bear" />
+      <RiveComponent
+        className="bear"
+        onMouseEnter={() =>rive && rive.play('success')}
+        onMouseLeave={() =>rive && rive.pause('success')}
+      />
       <button
-        className='voice-btn'
+        className="voice-btn"
         onClick={() =>
           handleSpeech(
             `We're thrilled to invite you to ${event.name} on ${event.day}, ${event.date}. The event will be held at ${event.venueId.name}`
           )
         }
       >
-        {paused ? <FontAwesomeIcon icon={faVolumeUp} /> : <FontAwesomeIcon icon={faVolumeOff} /> }
+        {paused ? (
+          <FontAwesomeIcon icon={faVolumeUp} />
+        ) : (
+          <FontAwesomeIcon icon={faVolumeOff} />
+        )}
       </button>
-      
+
       {event ? (
         <>
           <h2>You're Invited to {event.name} Event!</h2>
-          <p className='invitation-msg'>
+          <p className="invitation-msg">
             <br></br>
             Date: {event.day}, {event.date} <br></br>
-            Venue: {event.venueId.name}{' '}<br></br>
+            Venue: {event.venueId.name} <br></br>
             Location: <a href={event.venueId.location}>Location</a>.
           </p>
         </>
@@ -90,7 +101,9 @@ const Invitation = ({ invitationLink, user }) => {
         <p>Loading...</p>
       )}
 
-      <button className='share-btn' onClick={handleShare}>Share Invitation</button>
+      <button className="share-btn" onClick={handleShare}>
+        Share Invitation
+      </button>
     </div>
   )
 }

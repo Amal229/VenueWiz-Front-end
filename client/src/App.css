@@ -758,13 +758,12 @@ p {
   font-weight: 700;
   text-align: center;
   padding-bottom: 20px;
-  
 }
 
 .bear {
-  width: auto;
+  width: 430px;
   height: 430px;
-  /* margin-top: -90px; */
+  margin: auto
 }
 
 .voice-btn, .share-btn{
