@@ -27,21 +27,22 @@ const VenueCard = ({ path, venue, onDelete }) => {
 
   return (
     <>
-      <Link to={path} key={venue._id} className="venue-card-mine">
-        <div className="venue-info-wrapper">
-          <h2>{venue.name}</h2>{' '}
-        </div>
-        <div className="venue-img-wrapper">
-          <img src={venue.image} alt={venue.name} />{' '}
-        </div>
+      <div className="venue-card-mine">
+        <Link to={path} key={venue._id}>
+          <div className="venue-info-wrapper">
+            <h2>{venue.name}</h2>{' '}
+          </div>
+          <div className="venue-img-wrapper">
+            <img src={venue.image} alt={venue.name} />{' '}
+          </div>
+        </Link>
         <button
           className="delete-button"
           onClick={() => handleDeleteVenue(venue._id)}
         >
           Delete Venue
         </button>
-      </Link>
-
+      </div>
       {venueToDelete && (
         <div className="delete-confirmation">
           <p>Delete Venue?</p>
