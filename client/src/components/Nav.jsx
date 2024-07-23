@@ -6,11 +6,10 @@ import '../App.css'
 const Nav = ({ user, handleLogOut }) => {
   return (
     <header>
-      <h3 className="title">
-        <img src="../images/title.png" className="title-img" />
-      </h3>
-      <NavLink className="">
-        {/* <h3 className="title"> VenueWiz</h3> */}
+      <NavLink to="/" end className="">
+        <h3 className="title">
+          <img src="../images/title.png" className="title-img" />
+        </h3>
       </NavLink>
 
       <div className="nav-links">

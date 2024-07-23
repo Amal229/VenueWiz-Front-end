@@ -1,4 +1,4 @@
-# Event Management System
+# VenueWiz : Event Management System
 
 ### Team Members
 
@@ -12,9 +12,9 @@
 
 ### Overview
 
-![]()
+![VenueWiz Logo](./images/title.png)
 
-**_Event Management System_** is a web application designed to manage and organize events for users and vendors. The user is allowed to book an appropriate venue for his events while the vendor can manage the event and venue, edit,delete or update it. 
+**_Event Management System_** is a web application designed to manage and organize events for users and vendors. The user is allowed to view and book an appropriate venue for his events. Then invite guests to their events. While the vendor can manage the events and venues, edit, delete or update them. 
 ---
 
 ### Key Features
@@ -22,7 +22,8 @@
 1. **Book a venue for an event:** Users can book an event with a specific venue.
 2. **Update venue details:** Vendor can update venue details.
 3. **Delete venue:** Vendor can delete a venue.
-4. **View user venue:** Vendor can view the user venue events.
+4. **Add venue:** Vendor can add a venue.
+5. **View user venue:** Vendor can view the user venue events.
 
 ---
 
@@ -39,7 +40,6 @@
 MONGODB_URI=<connection to mongodb>
 APP_SECRET=<random String>
 SALT_ROUNDS=<Number>
-GROQ_API_KEY=<api key for groq>
 ```
 
 5. Run the front-end and back-end servers.
@@ -51,7 +51,6 @@ GROQ_API_KEY=<api key for groq>
 - Front-end: **React**
 - Back-end: **Node.js, Express.js**
 - Database: **MongoDB**
-- Deployment: **Render, Surge**
 - Project Management: **Trello, Slack**
 - Designing Phase: **Canva**
   - [component hierarchy diagram](https://trello.com/1/cards/66856759a71e10e566588620/attachments/6685676266d67bf6346cafee/download/Screenshot_2024-07-03_at_5.59.25_PM.png)
@@ -61,23 +60,23 @@ GROQ_API_KEY=<api key for groq>
 ---
 ### Deployment and Live Demo
 
-- [EMS deployed website]()
+
 - [Trello board](https://trello.com/invite/b/xms18rJ1/ATTIaf4adfde3d1660f0b34f53d848fe30bfCBD50F73/project-4)
 - Screenshots:
 
 <div align="center">
   <pre>
-    <img src="./images/1.png" />&nbsp;&nbsp;&nbsp;<img src="./images/6.png" />&nbsp;&nbsp;&nbsp;
+    <img src="./images/homepage.png" />&nbsp;&nbsp;&nbsp;<img src="./images/venuespage.png" />&nbsp;&nbsp;&nbsp;<img src="./images/venuedetailspage.png" />&nbsp;&nbsp;&nbsp;<img src="./images/bookingpage.png" />&nbsp;&nbsp;&nbsp;<img src="./images/invitation bear.gif" />&nbsp;&nbsp;&nbsp;<img src="./images/editpage.png" />&nbsp;&nbsp;&nbsp;
   </pre>
 </div>
 
 ---
 ### Additional Features
-- [] AI venue suggestions.
-- [] Auto tasks
-- [] Dark mode
-- [] Invitation ‘text to speech’ with friendly character
-- [] Different designs for invetition.
+- [ ] AI venue suggestions.
+- [ ] Auto tasks
+- [ ] Dark mode
+- [x] Invitation ‘text to speech’ with friendly character
+- [ ] Different designs for invetition.
 
 
 ---
@@ -88,6 +87,6 @@ GROQ_API_KEY=<api key for groq>
 - scrollable images in readme from [/shelf project](https://github.com/NobodysLackey/shelf/blob/main/README.md)
 - share function [navigator.share](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share)
 - DatePicker from react suite [reactsuite](https://rsuitejs.com/components/date-picker/)
-- Speaking Character from [Rive](https://rive.app/) by 'JcToon' and remixed by 
+- Speaking Character from [Rive](https://rive.app) by 'JcToon' and remixed by 
 'japarj'
 

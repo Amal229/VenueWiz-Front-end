@@ -16,6 +16,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;
+  color: #333;
 }
 
 main {
@@ -388,82 +389,16 @@ h1 {
 .venue-info-wrapper-detail button:hover {
   background-color: #3252e0;
 }
-/*.col {
-  margin: 30px;
-}
 
-.card-overlay {
-  background-color: #fdfdff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: #000000;
-  font-family: 'Arimo', sans-serif;
-  margin-left: 10%;
-  margin-right: 10%;
-}
-
-.centered h3 {
-  font-size: 1.5em;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.form-wrapper {
-  width: 100%;
-  max-width: 600px;
-}
-
-.input-wrapper {
-  margin-bottom: 15px;
-  display: flex;
-  flex-direction: column;
-}
-
-.input-wrapper label {
-  margin-bottom: 5px;
-  font-size: 1.5em;
-  font-family: 'Arimo', sans-serif;
-  font-weight: bold;
-}
-
-.input-wrapper input,
-.input-wrapper select {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 1.2em;
-  color: #000;
-}
-
-/*button {
-  background-color: #5271ff;
-  border: none;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 1em;
-  font-family: 'Arimo', sans-serif;
-  font-weight: bold;
-  margin-top: 10px;
-  margin-left: 50%;
-}
-
-button:disabled {
-  background-color: #aaa;
-}*/
-/*add venue form*/
 .Forms {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* height: 140vh; */
   font-family: 'Arimo', sans-serif;
   font-optical-sizing: auto;
   font-weight: bold;
   font-style: normal;
-  /* font-size: 10px; */
   color: #5271ff;
   margin: 40px;
 }
@@ -791,18 +726,7 @@ p {
   color: #aab9ff;
 }
 
-.invitation-container {
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 20px;
-  height: 100vh; */
-  /* display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  text-align: center; */
-}
+
 
 .invitation-container h2 {
   font-family: 'DM Serif Display', serif;
@@ -838,17 +762,16 @@ p {
 }
 
 .event-img-wrapper-detail img {
-  width: 500px; /* Sets the image width to 200px */
-  height: 500px; /* Maintains the aspect ratio */
+  width: 500px; 
+  height: 500px; 
   border-radius: 30px;
-  transition: transform 0.3s ease; /* Smooth transition for hover effect */
+  transition: transform 0.3s ease; 
 }
 .event-card-detail {
   background-color: #fcfcfc00;
 
   padding: 20px;
   border-radius: 10px;
-  /* width: 80%; */
   max-width: 1200px;
 }
 .container-center-event {
@@ -862,8 +785,6 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* align-items: flex-start;
-  margin-left: 50px;*/
   font-family: 'Arimo', sans-serif;
   font-optical-sizing: auto;
   font-weight: bold;
@@ -884,12 +805,11 @@ p {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  /*align-items: flex-start;*/
   justify-content: center;
   text-align: center;
 }
 .event-card-divs:hover {
-  transform: scale(1.05); /* Scale effect on hover */
+  transform: scale(1.05); 
 }
 .event-title {
   font-size: 1.5em;

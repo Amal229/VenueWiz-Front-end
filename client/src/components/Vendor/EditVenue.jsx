@@ -4,7 +4,7 @@ import { GetCategories } from '../../services/Venue'
 import Client from '../../services/api'
 import { GetVendorVenueDetails } from '../../services/Venue'
 import '../../App.css'
-import { Link } from 'react-router-dom'
+
 
 const EditVenuesForm = ({ user }) => {
   let navigate = useNavigate()

@@ -13,7 +13,6 @@ import VenueBookingForm from './components/user/VenueBookingForm'
 import Login from './components/Auth/Login'
 import Register from './components/Auth/Register'
 import EventDetials from './components/Vendor/EventDetails'
-import BookedEvents from './components/user/BookedEvents'
 import { CheckSession } from './services/Auth'
 import VenueDetails from './components/user/VenueDetails'
 import About from './components/About'
@@ -58,7 +57,6 @@ const App = () => {
           <Route path="/venues" element={<MyVenue user={user} />} />
           <Route path="/venues" element={<MyVenue />} />
           <Route path="/categories/:category_id" element={<ViewVenues />} />
-          {/* should accept user */}
           <Route
             path="/venues/newvenue"
             element={<AddingVenuesForm user={user} />}

@@ -13,7 +13,6 @@ const BookedVenues = ({ user }) => {
     const getvendorevents = async () => {
       const data = await GetVendorEvents(user.id)
       setEvents(data)
-      console.log('event with formatted date?', events)
     }
     getvendorevents()
   }, [])

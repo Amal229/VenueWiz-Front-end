@@ -16,7 +16,6 @@ const Register = () => {
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
-    console.log(formValues)
   }
 
   const handleSubmit = async (e) => {
@@ -29,7 +28,6 @@ const Register = () => {
         phoneNumber: formValues.phoneNumber,
         vendor: true
       })
-      console.log(res)
     } else {
       let res = await RegisterUser({
         name: formValues.name,
@@ -37,7 +35,6 @@ const Register = () => {
         password: formValues.password,
         phoneNumber: formValues.phoneNumber
       })
-      console.log(res)
     }
 
     setFormValues({
